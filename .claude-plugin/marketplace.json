@@ -1,31 +1,27 @@
 {
-  "registry": "takaka-agent-plugins",
-  "version": "0.1.0",
-  "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ",
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "takaka-agent-plugins",
+  "owner": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "metadata": {
+    "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ。Claude Code (Agent SDK) 向けプラグインを一元管理する。",
+    "version": "0.1.0"
+  },
   "plugins": [
     {
       "name": "orchestrator",
-      "version": "0.1.0",
+      "source": "./plugins/orchestrator",
       "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
-      "tags": ["コア", "オーケストレーター", "ルーティング"],
-      "agents": [
-        {
-          "name": "orchestrator-master",
-          "description": "全タスクのメインエントリーポイント。リクエストを解析して適切なプラグインへ委譲する。",
-          "model": "opus"
-        },
-        {
-          "name": "orchestrator-planner",
-          "description": "複雑なタスクをステップに分解し、プラグイン割り当て付きの実行プランをJSON形式で出力する。",
-          "model": "opus"
-        }
-      ],
-      "skills": [
-        {
-          "name": "route",
-          "description": "特定のプラグインエージェントへ直接ルーティングする（自動ルーティングの迂回用）。"
-        }
-      ]
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/orchestrator",
+      "license": "MIT",
+      "category": "orchestration"
     }
   ]
 }

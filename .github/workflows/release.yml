@@ -7,11 +7,12 @@ on:
       - main
 
 jobs:
-  # ──────────────────────────────────────────
-  # ① コミット履歴を解析してバージョンを決定し Git タグを打つ
-  # ──────────────────────────────────────────
-  versioning:
-    name: バージョン決定
+  # ──────────────────────────────────────────────────────
+  # ① コミット履歴全体を解析してリポジトリバージョンを決定し
+  #    Git タグを打つ
+  # ──────────────────────────────────────────────────────
+  version-registry:
+    name: リポジトリバージョン決定
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -38,48 +39,120 @@ jobs:
           # conventional commit に該当しない場合はデフォルトで patch up
           default_bump: patch
 
-  # ──────────────────────────────────────────
-  # ② .claude-plugin/marketplace.json の version を更新してコミット
-  # ──────────────────────────────────────────
-  update-marketplace:
-    name: marketplace.json バージョン更新
+  # ──────────────────────────────────────────────────────
+  # ② バージョンを更新してコミット
+  #
+  #    レジストリ: marketplace.json の metadata.version を更新
+  #    各プラグイン: plugins/<name>/ 配下を変更したコミットだけを
+  #                見て個別に semver バンプ（最大変更を優先）
+  #
+  #    バンプ判定ルール（プラグイン単位）:
+  #      feat! / fix! / refactor! / BREAKING CHANGE → major
+  #      feat                                        → minor
+  #      fix / perf / refactor                       → patch
+  #      docs / style / test / build / ci / chore    → 変動なし
+  # ──────────────────────────────────────────────────────
+  update-versions:
+    name: バージョン更新（レジストリ + 各プラグイン）
     runs-on: ubuntu-latest
-    needs: versioning
+    needs: version-registry
     permissions:
       contents: write
 
     steps:
       - uses: actions/checkout@v4
         with:
-          # タグ打ち後の最新 main を取得
           ref: main
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: marketplace.json の version フィールドを更新
+      - name: 各プラグインのバージョンをコミット履歴から判定して更新
         run: |
-          VERSION="${{ needs.versioning.outputs.version }}"
-          jq --arg v "$VERSION" '.version = $v' .claude-plugin/marketplace.json > tmp.json
+          REGISTRY_VERSION="${{ needs.version-registry.outputs.version }}"
+
+          # semver バンプ関数
+          bump_semver() {
+            local v=$1 bump=$2
+            local major minor patch
+            IFS='.' read -r major minor patch <<< "$v"
+            case $bump in
+              major) echo "$((major+1)).0.0" ;;
+              minor) echo "$major.$((minor+1)).0" ;;
+              patch) echo "$major.$minor.$((patch+1))" ;;
+              *)     echo "$v" ;;
+            esac
+          }
+
+          # 直前タグを取得（タグがなければ初回コミットを起点にする）
+          LAST_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null \
+                     || git rev-list --max-parents=0 HEAD)
+
+          echo "前回タグ / 起点: $LAST_TAG"
+
+          # plugins/ 配下の各プラグインを走査
+          for PLUGIN_DIR in plugins/*/; do
+            PLUGIN=$(basename "$PLUGIN_DIR")
+            PLUGIN_JSON="plugins/$PLUGIN/plugin.json"
+            [ -f "$PLUGIN_JSON" ] || continue
+
+            # このプラグインに影響するコミットメッセージを取得
+            COMMITS=$(git log --format="%s" "${LAST_TAG}..HEAD" -- "plugins/$PLUGIN/" 2>/dev/null)
+            [ -z "$COMMITS" ] && continue
+
+            # バンプ種別を判定（最も大きい変更を優先）
+            if echo "$COMMITS" | grep -qE "(feat|fix|refactor)!|BREAKING.CHANGE"; then
+              BUMP="major"
+            elif echo "$COMMITS" | grep -qE "^feat(\([^)]*\))?[!:]"; then
+              BUMP="minor"
+            elif echo "$COMMITS" | grep -qE "^(fix|perf|refactor)(\([^)]*\))?:"; then
+              BUMP="patch"
+            else
+              # docs / style / test / build / ci / chore → バージョン変動なし
+              echo "Plugin $PLUGIN: 変動なし（スキップ）"
+              continue
+            fi
+
+            # 現在バージョンを取得してバンプ
+            CURRENT=$(jq -r '.version // "0.0.0"' "$PLUGIN_JSON")
+            NEW_VER=$(bump_semver "$CURRENT" "$BUMP")
+
+            echo "Plugin $PLUGIN: $CURRENT → $NEW_VER ($BUMP)"
+
+            # plugin.json を更新
+            jq --arg v "$NEW_VER" '.version = $v' "$PLUGIN_JSON" > tmp.json
+            mv tmp.json "$PLUGIN_JSON"
+
+            # marketplace.json の対応エントリも更新
+            jq --arg n "$PLUGIN" --arg v "$NEW_VER" \
+              '(.plugins[] | select(.name == $n) | .version) |= $v' \
+              .claude-plugin/marketplace.json > tmp.json
+            mv tmp.json .claude-plugin/marketplace.json
+          done
+
+          # marketplace.json のレジストリバージョンを更新
+          jq --arg v "$REGISTRY_VERSION" '.metadata.version = $v' \
+            .claude-plugin/marketplace.json > tmp.json
           mv tmp.json .claude-plugin/marketplace.json
 
       - name: 変更をコミット & プッシュ
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .claude-plugin/marketplace.json
+          git add 'plugins/*/plugin.json' .claude-plugin/marketplace.json
           # 差分がなければスキップ（冪等）
           git diff --cached --quiet \
-            || git commit -m "chore: marketplace v${{ needs.versioning.outputs.version }} [skip ci]"
+            || git commit -m "chore: バージョン更新 v${{ needs.version-registry.outputs.version }} [skip ci]"
           git push
 
-  # ──────────────────────────────────────────
-  # ③ GitHub Release を作成（リリースノートはコミット履歴から自動生成）
-  # ──────────────────────────────────────────
+  # ──────────────────────────────────────────────────────
+  # ③ GitHub Release を作成
+  #    リリースノートはコミット履歴から自動生成
+  # ──────────────────────────────────────────────────────
   create-release:
     name: GitHub Release 作成
     runs-on: ubuntu-latest
     needs:
-      - versioning
-      - update-marketplace
+      - version-registry
+      - update-versions
     permissions:
       contents: write
 
@@ -91,7 +164,7 @@ jobs:
       - name: GitHub Release を作成
         uses: ncipollo/release-action@v1
         with:
-          tag: v${{ needs.versioning.outputs.version }}
-          name: v${{ needs.versioning.outputs.version }}
+          tag: v${{ needs.version-registry.outputs.version }}
+          name: v${{ needs.version-registry.outputs.version }}
           generateReleaseNotes: true
           token: ${{ secrets.GITHUB_TOKEN }}
