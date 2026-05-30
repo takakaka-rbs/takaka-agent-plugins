@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ。Claude Code (Agent SDK) 向けプラグインを一元管理する。",
-    "version": "0.1.0"
+    "version": "0.0.1"
   },
   "plugins": [
     {
