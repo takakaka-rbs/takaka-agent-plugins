@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "orchestrator",
+  "version": "0.1.0",
+  "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/orchestrator",
+  "license": "MIT",
+  "keywords": ["オーケストレーター", "ルーティング", "協調実行", "コア"]
+}

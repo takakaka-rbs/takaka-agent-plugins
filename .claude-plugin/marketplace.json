@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "takaka-agent-plugins",
+  "owner": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "metadata": {
+    "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ。Claude Code (Agent SDK) 向けプラグインを一元管理する。",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "orchestrator",
+      "source": "./plugins/orchestrator",
+      "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/orchestrator",
+      "license": "MIT",
+      "category": "orchestration"
+    }
+  ]
+}

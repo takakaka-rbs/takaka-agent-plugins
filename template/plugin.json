@@ -1,0 +1,11 @@
+{
+  "name": "your-plugin-name",
+  "version": "0.1.0",
+  "description": "プラグインの説明をここに書きます",
+  "author": "your-name",
+  "tags": [],
+  "claude_code": {
+    "min_version": "1.0.0"
+  },
+  "entrypoint": "agent.md"
+}
