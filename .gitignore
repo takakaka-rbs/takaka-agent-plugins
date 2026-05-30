@@ -1,3 +1,6 @@
+# 依存パッケージ
+node_modules/
+
 # OS
 .DS_Store
 Thumbs.db

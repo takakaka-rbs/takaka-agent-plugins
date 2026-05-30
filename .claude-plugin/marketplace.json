@@ -1,0 +1,31 @@
+{
+  "registry": "takaka-agent-plugins",
+  "version": "0.1.0",
+  "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ",
+  "plugins": [
+    {
+      "name": "orchestrator",
+      "version": "0.1.0",
+      "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
+      "tags": ["コア", "オーケストレーター", "ルーティング"],
+      "agents": [
+        {
+          "name": "orchestrator-master",
+          "description": "全タスクのメインエントリーポイント。リクエストを解析して適切なプラグインへ委譲する。",
+          "model": "opus"
+        },
+        {
+          "name": "orchestrator-planner",
+          "description": "複雑なタスクをステップに分解し、プラグイン割り当て付きの実行プランをJSON形式で出力する。",
+          "model": "opus"
+        }
+      ],
+      "skills": [
+        {
+          "name": "route",
+          "description": "特定のプラグインエージェントへ直接ルーティングする（自動ルーティングの迂回用）。"
+        }
+      ]
+    }
+  ]
+}

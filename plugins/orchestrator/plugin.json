@@ -1,0 +1,10 @@
+{
+  "name": "orchestrator",
+  "version": "0.1.0",
+  "description": "Universal orchestrator for the takaka-agent-plugins ecosystem. Routes all user requests to the appropriate specialist plugin agent and coordinates multi-step execution.",
+  "author": "takaka",
+  "tags": ["orchestrator", "routing", "coordination", "core"],
+  "claude_code": {
+    "min_version": "1.0.0"
+  }
+}

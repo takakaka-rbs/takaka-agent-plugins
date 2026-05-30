@@ -34,6 +34,7 @@ takaka-agent-plugins/
 
 | プラグイン名 | バージョン | 説明 |
 |---|---|---|
+| [orchestrator](./plugins/orchestrator/) | 0.1.0 | **コアプラグイン** — 全リクエストのエントリーポイント。適切なプラグインへルーティング・調整 |
 | [example-plugin](./plugins/example-plugin/) | 0.1.0 | 構成参照用サンプルプラグイン |
 
 ## インストール
