@@ -4,67 +4,105 @@ Claude Code (Agent SDK) 向けプラグインの管理リポジトリです。
 
 ## 概要
 
-各プラグインは `plugins/<name>/` に格納され、`.claude/` ディレクトリ準拠の構成を持ちます。  
-プロジェクトへのインストールは対応するサブディレクトリをコピーするだけです。
+各プラグインは `plugins/<name>/` に格納され、`claude plugin` コマンドでインストールして使います。
 
 ## ディレクトリ構成
 
 ```
 takaka-agent-plugins/
+├── .claude-plugin/
+│   └── marketplace.json         # マーケットプレイスレジストリ
 ├── plugins/
-│   └── example-plugin/
+│   └── orchestrator/            # コアプラグイン
 │       ├── plugin.json          # メタデータ
 │       ├── README.md
 │       ├── agents/
-│       │   └── example.md       # カスタムサブエージェント定義
-│       ├── skills/
-│       │   └── example-skill/
-│       │       └── SKILL.md     # スラッシュコマンド定義
-│       ├── hooks/
-│       │   └── pre-tool-use.sh  # フックスクリプト
-│       ├── settings.json        # フック配線設定
-│       └── mcp.json             # MCPサーバー設定
+│       │   ├── master.md        # orchestrator-master エージェント
+│       │   └── planner.md       # orchestrator-planner エージェント
+│       └── skills/
+│           └── route/
+│               └── SKILL.md     # /route スキル
 ├── template/                    # 新規プラグイン作成用ひな型
 ├── docs/
-│   └── plugin-spec.md           # プラグイン仕様（全構成要素の説明）
+│   └── plugin-spec.md           # プラグイン仕様
 └── CONTRIBUTING.md
 ```
 
 ## プラグイン一覧
 
-| プラグイン名 | バージョン | 説明 |
-|---|---|---|
-| [orchestrator](./plugins/orchestrator/) | 0.1.0 | **コアプラグイン** — 全リクエストのエントリーポイント。適切なプラグインへルーティング・調整 |
-| [example-plugin](./plugins/example-plugin/) | 0.1.0 | 構成参照用サンプルプラグイン |
+| プラグイン名                            | バージョン | 説明                                                                                        |
+| --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+| [orchestrator](./plugins/orchestrator/) | 0.1.0      | **コアプラグイン** — 全リクエストのエントリーポイント。適切なプラグインへルーティング・調整 |
+
+---
 
 ## インストール
 
-### 前提条件
+### CLI からインストール
 
-- [Claude Code](https://claude.ai/code) がインストールされていること
+#### 1. Claude CLI をインストール
 
-### 手順
+**Windows:**
 
-1. このリポジトリをクローン
-
-```bash
-git clone https://github.com/your-org/takaka-agent-plugins.git
+```powershell
+irm https://claude.ai/install.ps1 | iex
 ```
 
-2. インストールしたいプラグインの各コンポーネントをプロジェクトの `.claude/` へコピー
+**macOS / Linux:**
 
 ```bash
-PLUGIN=example-plugin
-PROJECT=/path/to/your/project
-
-cp -r plugins/$PLUGIN/agents/*  $PROJECT/.claude/agents/
-cp -r plugins/$PLUGIN/skills/*  $PROJECT/.claude/skills/
-cp -r plugins/$PLUGIN/hooks/*   $PROJECT/.claude/hooks/
-# settings.json と mcp.json は既存ファイルとマージが必要
+curl -fsSL https://claude.ai/install.sh | sh
 ```
 
-> **Note**: `settings.json` と `mcp.json` は上書きではなくマージしてください。  
-> 詳細は [plugin-spec.md](./docs/plugin-spec.md) を参照してください。
+インストール後、表示されたパスを PATH に追加してターミナルを再起動します。
+
+#### 2. マーケットプレイスを登録
+
+```bash
+# GitHub リポジトリから（HTTPS）
+claude plugin marketplace add https://github.com/<your-org>/takaka-agent-plugins
+
+# ローカルパスから（未 push の場合）
+claude plugin marketplace add /path/to/takaka-agent-plugins
+```
+
+#### 3. プラグインをインストール
+
+```bash
+claude plugin install orchestrator@takaka-agent-plugins
+```
+
+---
+
+### チャットからインストール
+
+Claude Code のチャット欄に直接入力します（CLI のインストールは不要）。
+
+#### 1. マーケットプレイスを登録
+
+```
+/plugin marketplace add https://github.com/<your-org>/takaka-agent-plugins
+```
+
+#### 2. プラグインをインストール
+
+```
+/plugin install orchestrator@takaka-agent-plugins
+```
+
+---
+
+## 使い方
+
+インストール後、`orchestrator-master` エージェントが自動的に利用可能になります。
+
+すべてのリクエストはオーケストレーターを経由して適切なプラグインへ振り分けられます。
+
+```
+/route orchestrator planner タスクを分解してほしい
+```
+
+---
 
 ## 新しいプラグインを追加する
 
