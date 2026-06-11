@@ -22,6 +22,19 @@
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/orchestrator",
       "license": "MIT",
       "category": "orchestration"
+    },
+    {
+      "name": "requirements-specificater",
+      "source": "./plugins/requirements-specificater",
+      "description": "ユーザーとの対話・コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成・更新するプラグイン。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/requirements-specificater",
+      "license": "MIT",
+      "category": "documentation"
     }
   ]
 }
