@@ -36,6 +36,7 @@ takaka-agent-plugins/
 | [orchestrator](./plugins/orchestrator/) | 0.1.1      | **コアプラグイン** — 全リクエストのエントリーポイント。適切なプラグインへルーティング・調整 |
 | [requirements-specificater](./plugins/requirements-specificater/) | 0.1.0 | 対話・コードベース調査・Web調査を通じて要件定義書を作成・更新する |
 | [github-issue-creator](./plugins/github-issue-creator/) | 0.1.0 | ユーザーの指示からGitHub Issueを対話形式で作成する（GitHub MCP優先・gh CLI補完、複数一括対応） |
+| [git-commit-pusher](./plugins/git-commit-pusher/) | 0.1.0 | 変更を内容ごとに分割し、commitlint準拠のConventional Commitメッセージ（英語）でコミット・プッシュする |
 
 ---
 

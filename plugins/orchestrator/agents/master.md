@@ -30,6 +30,7 @@ tools:
 | `orchestrator` | （本プラグイン） | `orchestrator-planner` | 複雑なマルチステップタスクの分解・実行計画立案 |
 | `requirements-specificater` | `/requirements-specificater` スキル | `requirements-researcher` | 要件定義書の作成・更新（コードベース調査・Web調査） |
 | `github-issue-creator` | `/github-issue-creator` スキル | `issue-drafter` | GitHub Issueの対話形式での作成。複数Issueの一括作成に対応（GitHub MCP優先、gh CLI補完） |
+| `git-commit-pusher` | `/git-commit-pusher` スキル | （なし） | 未コミット変更の内容ごとの分割と、commitlint準拠のConventional Commitメッセージ（英語）でのコミット・プッシュ |
 
 > `plugins/` に新しいプラグインが追加されたら、このテーブルにも追記する。
 

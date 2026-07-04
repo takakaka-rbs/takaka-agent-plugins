@@ -68,7 +68,7 @@ cp -r skills/*  $PROJECT/.claude/skills/
 
 ### 0.1.1
 
-- プラグインレジストリを実態に合わせて更新: 実在しない `example-plugin` を削除し、`requirements-specificater`・`github-issue-creator` をスキルエントリーポイントとして登録
+- プラグインレジストリを実態に合わせて更新: 実在しない `example-plugin` を削除し、`requirements-specificater`・`github-issue-creator`・`git-commit-pusher` をスキルエントリーポイントとして登録
 - スキルがエントリーポイントのプラグインへの委譲ルール（内部エージェントを直接呼ばない）を追加
 - `/route` とREADMEの例を実在するプラグインに差し替え
 

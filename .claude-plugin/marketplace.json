@@ -48,6 +48,19 @@
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/github-issue-creator",
       "license": "MIT",
       "category": "automation"
+    },
+    {
+      "name": "git-commit-pusher",
+      "source": "./plugins/git-commit-pusher",
+      "description": "現在の変更を内容ごとに分割し、リポジトリのcommitlint設定に沿ったConventional Commitメッセージ（英語）でコミットしてプッシュするプラグイン。前提ツール（git / gh CLI）のチェックを最初に行う。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/git-commit-pusher",
+      "license": "MIT",
+      "category": "automation"
     }
   ]
 }

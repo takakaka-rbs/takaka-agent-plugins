@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "git-commit-pusher",
+  "version": "0.1.0",
+  "description": "現在の変更を内容ごとに分割し、リポジトリのcommitlint設定に沿ったConventional Commitメッセージ（英語）でコミットしてプッシュするプラグイン。前提ツール（git / gh CLI）のチェックを最初に行う。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/git-commit-pusher",
+  "license": "MIT",
+  "keywords": ["git", "commit", "push", "Conventional Commits", "commitlint"]
+}
