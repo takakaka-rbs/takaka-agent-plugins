@@ -14,7 +14,8 @@ takaka-agent-plugins/
 │   └── marketplace.json         # マーケットプレイスレジストリ
 ├── plugins/
 │   └── orchestrator/            # コアプラグイン
-│       ├── plugin.json          # メタデータ
+│       ├── .claude-plugin/
+│       │   └── plugin.json      # メタデータ（マニフェスト）
 │       ├── README.md
 │       ├── agents/
 │       │   ├── master.md        # orchestrator-master エージェント
@@ -32,8 +33,9 @@ takaka-agent-plugins/
 
 | プラグイン名                            | バージョン | 説明                                                                                        |
 | --------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-| [orchestrator](./plugins/orchestrator/) | 0.1.0      | **コアプラグイン** — 全リクエストのエントリーポイント。適切なプラグインへルーティング・調整 |
+| [orchestrator](./plugins/orchestrator/) | 0.1.1      | **コアプラグイン** — 全リクエストのエントリーポイント。適切なプラグインへルーティング・調整 |
 | [requirements-specificater](./plugins/requirements-specificater/) | 0.1.0 | 対話・コードベース調査・Web調査を通じて要件定義書を作成・更新する |
+| [github-issue-creator](./plugins/github-issue-creator/) | 0.1.0 | ユーザーの指示からGitHub Issueを対話形式で作成する（GitHub MCP優先・gh CLI補完、複数一括対応） |
 
 ---
 

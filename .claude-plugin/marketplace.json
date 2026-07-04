@@ -14,7 +14,7 @@
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
       "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -35,6 +35,19 @@
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/requirements-specificater",
       "license": "MIT",
       "category": "documentation"
+    },
+    {
+      "name": "github-issue-creator",
+      "source": "./plugins/github-issue-creator",
+      "description": "ユーザーの指示からGitHub Issueを対話形式で作成するプラグイン。GitHub MCPを優先し、MCPが対応しない操作はgh CLIで補完する。複数Issueの一括作成に対応。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/github-issue-creator",
+      "license": "MIT",
+      "category": "automation"
     }
   ]
 }

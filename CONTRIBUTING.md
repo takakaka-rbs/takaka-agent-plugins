@@ -18,13 +18,13 @@ cp -r template plugins/your-plugin-name
 
 | ファイル | 必須 | 編集内容 |
 |---|---|---|
-| `plugin.json` | 必須 | `name`, `version`, `description`, `author`, `tags` を更新 |
+| `.claude-plugin/plugin.json` | 必須 | `name`, `version`, `description`, `author`, `homepage`, `keywords` を更新 |
 | `README.md` | 推奨 | プラグインの使い方を記述 |
 | `agents/*.md` | 任意 | エージェントが不要なら削除 |
 | `skills/*/SKILL.md` | 任意 | スキルが不要なら削除 |
 | `hooks/*.sh` | 任意 | フックが不要なら削除 |
 | `settings.json` | 任意 | 使うフックのみ残す、不要なら削除 |
-| `mcp.json` | 任意 | MCPサーバーが不要なら削除 or `{}` に |
+| `.mcp.json` | 任意 | MCPサーバーが不要なら削除 or `{}` に |
 
 ### 4. agents/ の .md frontmatter を更新
 
@@ -67,7 +67,7 @@ PR タイトル: `add: <plugin-name>`
 
 ## PR 作成前チェックリスト
 
-- [ ] `plugin.json` の全必須フィールドが埋まっている
+- [ ] `.claude-plugin/plugin.json` の全必須フィールドが埋まっている（ルート直下ではなく `.claude-plugin/` 内に置く）
 - [ ] `agents/*.md` がある場合、`name` と `description` frontmatter が記入されている
 - [ ] `skills/*/SKILL.md` がある場合、`name` frontmatter が記入されている
 - [ ] `hooks/*.sh` に実行権限がある（`chmod +x`）

@@ -24,7 +24,11 @@ invocation: user
 ## Examples
 
 ```
-/route example-plugin example-agent プラグイン構成について教えて
+/route requirements-specificater requirements-researcher 既存システムの現行機能を調査して要件候補をまとめて
+```
+
+```
+/route github-issue-creator issue-drafter ログイン後にセッションが切れるバグの該当コードと再現条件を調査して
 ```
 
 ```

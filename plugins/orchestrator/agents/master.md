@@ -25,13 +25,15 @@ tools:
 
 **登録済みプラグイン:**
 
-| プラグイン       | エージェント           | 担当タスク                                     |
-| ---------------- | ---------------------- | ---------------------------------------------- |
-| `orchestrator`   | `orchestrator-planner` | 複雑なマルチステップタスクの分解・実行計画立案 |
-| `example-plugin` | `example-agent`        | デモ・リファレンス・プラグイン構造に関する質問 |
-| `requirements-specificater` | `requirements-researcher` | 要件定義書の作成・更新（コードベース調査・Web調査） |
+| プラグイン | エントリーポイント | 内部エージェント | 担当タスク |
+| --- | --- | --- | --- |
+| `orchestrator` | （本プラグイン） | `orchestrator-planner` | 複雑なマルチステップタスクの分解・実行計画立案 |
+| `requirements-specificater` | `/requirements-specificater` スキル | `requirements-researcher` | 要件定義書の作成・更新（コードベース調査・Web調査） |
+| `github-issue-creator` | `/github-issue-creator` スキル | `issue-drafter` | GitHub Issueの対話形式での作成。複数Issueの一括作成に対応（GitHub MCP優先、gh CLI補完） |
 
 > `plugins/` に新しいプラグインが追加されたら、このテーブルにも追記する。
+
+**委譲先の使い分け**: エントリーポイントがスキルのプラグインへは、そのスキル（スラッシュコマンド）を起動して委譲する。内部エージェントはスキルのワークフローから呼び出される前提で設計されているため、原則として直接呼び出さない（調査だけを単独で依頼したい場合など、明確な理由があるときのみ直接呼ぶ）。
 
 ## ルーティング判断プロセス
 

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "github-issue-creator",
+  "version": "0.1.0",
+  "description": "ユーザーの指示からGitHub Issueを対話形式で作成するプラグイン。GitHub MCPを優先し、MCPが対応しない操作はgh CLIで補完する。複数Issueの一括作成に対応。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/github-issue-creator",
+  "license": "MIT",
+  "keywords": ["GitHub", "Issue", "自動作成", "gh CLI", "GitHub MCP"]
+}
