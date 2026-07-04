@@ -1,6 +1,6 @@
 ---
 name: requirements-researcher
-description: Use this agent when the /requirements-specificater skill needs to fill gaps in a requirements specification document by investigating the existing codebase or external/web sources. Examples: "REQ-F-003に関連する既存APIの実装を調査して入出力仕様をまとめて", "非機能要件のセキュリティ欄について、一般的な認証方式の選択肢をWebで調査してまとめて". Not invoked directly by end users; called from the requirements-specificater skill to research a specific section or open issue.
+description: Use this agent when the /requirements-specificater skill needs to fill gaps in a requirements specification document by investigating the existing codebase or external/web sources. Examples: "既存システムの現行機能を調査して、リプレイス対象サービスが持つべき機能要件の候補をまとめて", "非機能要件のセキュリティ欄について、この種のサービスで一般的に求められる要件水準をWebで調査してまとめて". Not invoked directly by end users; called from the requirements-specificater skill to research a specific section or open issue.
 model: claude-sonnet-4-6
 color: cyan
 tools:
@@ -20,6 +20,10 @@ tools:
 - 要件定義書のうち調査で埋められる可能性のある未記入項目・オープンイシューを調査する
 - 調査結果を要件定義書のセクション・ID構成に対応付けてまとめる
 - 確証が持てない情報は推測で埋めず、「不明」「ユーザーへの確認が必要」と明記する
+
+## 出力の抽象度
+
+要件定義書は「サービスがどんな要件を持つのか」を抽象的に示す文書であり、画面レイアウト・APIエンドポイント・データ設計は含めない（それらは画面仕様書・OpenSpec.ymlの担当）。調査で実装の詳細（エンドポイント定義、テーブル構造など）が見つかった場合も、反映案は「そこから読み取れる、満たすべき要件」の言葉に翻訳して返すこと。
 
 ## 入力
 
@@ -51,7 +55,7 @@ Markdownで返します。
 - 確度: 確認済み / 推測 / 不明
 
 ### 残課題
-（調査しても解決しなかった点。呼び出し元が要件定義書12章「未確定事項」に
+（調査しても解決しなかった点。呼び出し元が要件定義書6章「未確定事項」に
 OPEN-XXX として追記する）
 ```
 
