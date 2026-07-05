@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "requirements-specificater",
+  "version": "0.1.0",
+  "description": "ユーザーとの対話・コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成するプラグイン。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/requirements-specificater",
+  "license": "MIT",
+  "keywords": ["要件定義", "ドキュメント生成", "ヒアリング", "仕様策定"]
+}

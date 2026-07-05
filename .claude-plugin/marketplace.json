@@ -14,7 +14,7 @@
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
       "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -22,6 +22,45 @@
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/orchestrator",
       "license": "MIT",
       "category": "orchestration"
+    },
+    {
+      "name": "requirements-specificater",
+      "source": "./plugins/requirements-specificater",
+      "description": "ユーザーとの対話・コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成・更新するプラグイン。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/requirements-specificater",
+      "license": "MIT",
+      "category": "documentation"
+    },
+    {
+      "name": "github-issue-creator",
+      "source": "./plugins/github-issue-creator",
+      "description": "ユーザーの指示からGitHub Issueを対話形式で作成するプラグイン。GitHub MCPを優先し、MCPが対応しない操作はgh CLIで補完する。複数Issueの一括作成に対応。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/github-issue-creator",
+      "license": "MIT",
+      "category": "automation"
+    },
+    {
+      "name": "git-commit-pusher",
+      "source": "./plugins/git-commit-pusher",
+      "description": "現在の変更を内容ごとに分割し、リポジトリのcommitlint設定に沿ったConventional Commitメッセージ（英語）でコミットしてプッシュするプラグイン。前提ツール（git / gh CLI）のチェックを最初に行う。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/git-commit-pusher",
+      "license": "MIT",
+      "category": "automation"
     }
   ]
 }

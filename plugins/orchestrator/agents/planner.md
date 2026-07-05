@@ -1,7 +1,7 @@
 ---
 name: orchestrator-planner
 description: 複雑なマルチステップ・マルチドメインリクエスト向けのタスク分解スペシャリスト。ゴールを順序付きのサブタスクに分解し、各タスクに適切なプラグインエージェントを割り当て、依存関係を特定して構造化された実行計画を出力する。リクエストが複数のプラグインにまたがる場合や順次調整が必要な場合に使用。orchestrator-master から呼び出される。ユーザーが直接呼び出すエージェントではない。
-model: opus
+model: claude-sonnet-4-6
 color: blue
 tools:
   - Read
@@ -52,9 +52,7 @@ tools:
       "parallel_with": []
     }
   ],
-  "missing_plugins": [
-    "必要だがまだ作られていないプラグイン名"
-  ]
+  "missing_plugins": ["必要だがまだ作られていないプラグイン名"]
 }
 ```
 

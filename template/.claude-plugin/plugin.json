@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "your-plugin-name",
+  "version": "0.1.0",
+  "description": "プラグインの説明をここに書きます",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/your-plugin-name",
+  "license": "MIT",
+  "keywords": []
+}
