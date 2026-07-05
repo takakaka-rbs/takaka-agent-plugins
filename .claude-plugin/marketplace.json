@@ -14,7 +14,7 @@
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
       "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -22,6 +22,19 @@
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/orchestrator",
       "license": "MIT",
       "category": "orchestration"
+    },
+    {
+      "name": "openapi-specificater",
+      "source": "./plugins/openapi-specificater",
+      "description": "要件定義書（REQ-F-XXX）を参照しながら、APIの機能仕様書として通用するレベルまで記述したOpenAPI仕様書（OpenSpec.yml）を対話形式で作成・更新するプラグイン。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/openapi-specificater",
+      "license": "MIT",
+      "category": "documentation"
     },
     {
       "name": "requirements-specificater",

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "openapi-specificater",
+  "version": "0.1.0",
+  "description": "要件定義書（REQ-F-XXX）を参照しながら、APIの機能仕様書として通用するレベルまで記述したOpenAPI仕様書（OpenSpec.yml）を対話形式で作成・更新するプラグイン。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/openapi-specificater",
+  "license": "MIT",
+  "keywords": ["OpenAPI", "API仕様書", "OpenSpec", "ドキュメント生成", "仕様策定"]
+}

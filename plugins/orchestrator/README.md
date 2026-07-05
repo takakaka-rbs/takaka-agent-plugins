@@ -66,6 +66,10 @@ cp -r skills/*  $PROJECT/.claude/skills/
 
 ## 更新履歴
 
+### 0.1.2
+
+- プラグインレジストリに `openapi-specificater`（OpenAPI仕様書の作成・更新）を追加
+
 ### 0.1.1
 
 - プラグインレジストリを実態に合わせて更新: 実在しない `example-plugin` を削除し、`requirements-specificater`・`github-issue-creator`・`git-commit-pusher` をスキルエントリーポイントとして登録
