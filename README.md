@@ -18,7 +18,8 @@ takaka-agent-plugins/
 │   ├── openapi-specificater/          # OpenAPI仕様書（OpenSpec.yml）の作成・更新
 │   ├── screen-specificater/           # 画面仕様書の作成・更新
 │   ├── github-issue-creator/          # GitHub Issueの対話形式での作成
-│   └── git-commit-pusher/             # 変更の分割コミット・プッシュ
+│   ├── git-commit-pusher/             # 変更の分割コミット・プッシュ
+│   └── plugin-improver/               # 定義と実作業のズレの収集・定義への反映（自己改善）
 ├── template/                          # 新規プラグイン作成用ひな型
 ├── docs/
 │   └── plugin-spec.md                 # プラグイン仕様
@@ -47,6 +48,7 @@ plugins/<name>/
 | [screen-specificater](./plugins/screen-specificater/) | 0.1.0 | `/screen-specificater` | 要件定義書（REQ-F-XXX）とOpenSpec.yml（API-XXX）を参照し、コンポーネント配置・イベントハンドラー・表示制御まで記述した画面仕様書（Markdown）を作成・更新する |
 | [github-issue-creator](./plugins/github-issue-creator/) | 0.1.0 | `/github-issue-creator` | ユーザーの指示からGitHub Issueを対話形式で作成する（GitHub MCP優先・gh CLI補完、複数一括対応） |
 | [git-commit-pusher](./plugins/git-commit-pusher/) | 0.1.0 | `/git-commit-pusher` | 変更を内容ごとに分割し、commitlint準拠のConventional Commitメッセージ（英語）でコミット・プッシュする |
+| [plugin-improver](./plugins/plugin-improver/) | 0.1.0 | Stopフック / `/self-improve` | セッション中に検出した定義と実作業のズレを自動記録し、承認のうえでSKILL/エージェント定義本体へ反映する |
 
 ## ドキュメント作成プラグインの連携
 

@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ。Claude Code (Agent SDK) 向けプラグインを一元管理する。",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "plugins": [
     {
@@ -85,6 +85,19 @@
         "url": "https://github.com/takaka/takaka-agent-plugins"
       },
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/git-commit-pusher",
+      "license": "MIT",
+      "category": "automation"
+    },
+    {
+      "name": "plugin-improver",
+      "source": "./plugins/plugin-improver",
+      "description": "セッション中に検出したスキル/エージェント定義と実作業のズレをフィードバックとして自動記録し、/self-improve スキルで定義本体（SKILL.md / agents/*.md）へ反映する自己改善プラグイン。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/plugin-improver",
       "license": "MIT",
       "category": "automation"
     }
