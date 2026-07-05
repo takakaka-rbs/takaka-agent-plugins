@@ -66,6 +66,10 @@ cp -r skills/*  $PROJECT/.claude/skills/
 
 ## 更新履歴
 
+### 0.1.3
+
+- プラグインレジストリに `screen-specificater`（画面仕様書の作成・更新）を追加
+
 ### 0.1.2
 
 - プラグインレジストリに `openapi-specificater`（OpenAPI仕様書の作成・更新）を追加

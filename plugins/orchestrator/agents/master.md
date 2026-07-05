@@ -32,6 +32,7 @@ tools:
 | `github-issue-creator` | `/github-issue-creator` スキル | `issue-drafter` | GitHub Issueの対話形式での作成。複数Issueの一括作成に対応（GitHub MCP優先、gh CLI補完） |
 | `git-commit-pusher` | `/git-commit-pusher` スキル | （なし） | 未コミット変更の内容ごとの分割と、commitlint準拠のConventional Commitメッセージ（英語）でのコミット・プッシュ |
 | `openapi-specificater` | `/openapi-specificater` スキル | `openapi-researcher` | OpenAPI仕様書（OpenSpec.yml）の作成・更新。要件定義書のREQ-F-XXXを参照し、APIの機能仕様書として通用するレベルまで記述する |
+| `screen-specificater` | `/screen-specificater` スキル | `screen-researcher` | 画面仕様書（Markdown）の作成・更新。要件定義書のREQ-F-XXXとOpenSpec.ymlのAPI-XXXを参照し、コンポーネント配置・イベントハンドラー・表示制御・状態仕様まで記述する |
 
 > `plugins/` に新しいプラグインが追加されたら、このテーブルにも追記する。
 
