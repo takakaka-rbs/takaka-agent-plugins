@@ -1,0 +1,17 @@
+{
+  "description": "エージェント停止時に、takaka-agent-plugins のスキル/エージェント定義と実作業のズレを検出してフィードバックとして記録させるフック",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "このセッションの直近の作業を振り返り、takaka-agent-plugins のプラグイン定義（skills/*/SKILL.md または agents/*.md）の改善につながる気づきがあるか評価せよ。\n\n以下の3条件をすべて満たす場合のみ block し、それ以外は必ず approve すること。\n\n1. このセッションで takaka-agent-plugins のスキルまたはエージェント定義に従った作業を実際に行った\n2. 定義の記述と実際に必要だった作業の間にズレ・不足・誤りがあった（例: 手順が実態と合わない、前提チェックの漏れ、説明不足で判断に迷った、定義にない作業が繰り返し必要だった）\n3. その気づきがまだ .claude/plugin-feedback/ 配下に記録されていない\n\nblock する場合、reason には次の指示を含めること: 「.claude/plugin-feedback/<YYYYMMDD-HHmmss>-<プラグイン名>.md を作成し、frontmatter に plugin（プラグイン名）・component（対象の SKILL.md / agents/*.md の相対パス）・status: pending を、本文に『## 状況』『## 定義とのズレ』『## 改善案』の3セクションを記述して保存せよ。記録が完了したらそのまま応答を終了してよい（このフックは記録済みなら approve する）。」\n\n注意: プラグインを使っていないセッション、ズレがないセッション、既に記録済みの場合は理由を付けず approve すること。同じ気づきを重複して記録させてはならない。",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
