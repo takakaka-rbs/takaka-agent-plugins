@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "requirements-specificater",
-  "version": "0.1.0",
-  "description": "ユーザーとの対話・コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成するプラグイン。",
+  "version": "0.2.0",
+  "description": "コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
   "author": {
     "name": "takaka",
     "url": "https://github.com/takaka/takaka-agent-plugins"

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "plugin-improver",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "セッション中に検出したスキル/エージェント定義と実作業のズレをフィードバックとして自動記録し、/self-improve スキルで takaka-agent-plugins 本体の定義（SKILL.md / agents/*.md）へ反映するプラグイン。プラグインエコシステムの継続的な自己改善サイクルを担う。",
   "author": {
     "name": "takaka",

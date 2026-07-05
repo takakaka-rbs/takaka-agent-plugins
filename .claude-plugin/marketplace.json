@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ。Claude Code (Agent SDK) 向けプラグインを一元管理する。",
-    "version": "0.4.0"
+    "version": "0.6.0"
   },
   "plugins": [
     {
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
-      "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
-      "version": "0.1.3",
+      "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
+      "version": "0.3.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -26,8 +26,8 @@
     {
       "name": "openapi-specificater",
       "source": "./plugins/openapi-specificater",
-      "description": "要件定義書（REQ-F-XXX）を参照しながら、APIの機能仕様書として通用するレベルまで記述したOpenAPI仕様書（OpenSpec.yml）を対話形式で作成・更新するプラグイン。",
-      "version": "0.1.0",
+      "description": "要件定義書（REQ-F-XXX）を参照しながら、APIの機能仕様書として通用するレベルまで記述したOpenAPI仕様書（OpenSpec.yml）を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -39,8 +39,8 @@
     {
       "name": "requirements-specificater",
       "source": "./plugins/requirements-specificater",
-      "description": "ユーザーとの対話・コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成・更新するプラグイン。",
-      "version": "0.1.0",
+      "description": "コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -52,8 +52,8 @@
     {
       "name": "screen-specificater",
       "source": "./plugins/screen-specificater",
-      "description": "要件定義書（REQ-F-XXX）とOpenAPI仕様書（API-XXX）を参照しながら、コンポーネント配置・イベントハンドラー・表示制御まで記述した画面仕様書（Markdown）を対話形式で作成・更新するプラグイン。",
-      "version": "0.1.0",
+      "description": "要件定義書（REQ-F-XXX）とOpenAPI仕様書（API-XXX）を参照しながら、コンポーネント配置・イベントハンドラー・表示制御まで記述した画面仕様書（Markdown）を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -65,8 +65,8 @@
     {
       "name": "github-issue-creator",
       "source": "./plugins/github-issue-creator",
-      "description": "ユーザーの指示からGitHub Issueを対話形式で作成するプラグイン。GitHub MCPを優先し、MCPが対応しない操作はgh CLIで補完する。複数Issueの一括作成に対応。",
-      "version": "0.1.0",
+      "description": "ユーザーの指示からGitHub Issueを作成するプラグイン。方針確認はタスク開始時の1回のみで、ドラフト報告後そのまま作成まで自動で完遂する。GitHub MCPを優先し、MCPが対応しない操作はgh CLIで補完する。複数Issueの一括作成に対応。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -78,8 +78,8 @@
     {
       "name": "git-commit-pusher",
       "source": "./plugins/git-commit-pusher",
-      "description": "現在の変更を内容ごとに分割し、リポジトリのcommitlint設定に沿ったConventional Commitメッセージ（英語）でコミットしてプッシュするプラグイン。前提ツール（git / gh CLI）のチェックを最初に行う。",
-      "version": "0.1.0",
+      "description": "現在の変更を内容ごとに分割し、リポジトリのcommitlint設定に沿ったConventional Commitメッセージ（英語）でコミットしてプッシュするプラグイン。前提ツール（git / gh CLI）のチェックを最初に行う。方針確認はタスク開始時の1回のみで、以降は自動で完遂する。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -92,7 +92,7 @@
       "name": "plugin-improver",
       "source": "./plugins/plugin-improver",
       "description": "セッション中に検出したスキル/エージェント定義と実作業のズレをフィードバックとして自動記録し、/self-improve スキルで定義本体（SKILL.md / agents/*.md）へ反映する自己改善プラグイン。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"

@@ -64,7 +64,7 @@ status: pending
    ```
    更新1: plugins/git-commit-pusher/skills/git-commit-pusher/SKILL.md
      - ステップ0に○○のチェックを追加（フィードバック: 20260705-...md）
-   更新2: plugins/orchestrator/agents/master.md
+   更新2: plugins/orchestrator/agents/planner.md
      - ルーティング基準に△△を追記
    反映しないフィードバック: 20260701-...md（理由: ...）
    バージョン: git-commit-pusher 0.1.0 → 0.1.1

@@ -88,6 +88,11 @@ export TAKAKA_PLUGINS_REPO=/path/to/takaka-agent-plugins
 
 ## 更新履歴
 
+### 0.1.1
+
+- Stop フックの無限ループを修正: 評価プロンプトに出力契約（approve 時は分析・理由を出力せず判定のみ返す。「approve すべき理由」を reason に書いて block するのは誤り）を明記
+- 冪等ガードを条件の先頭に追加: 同一プラグイン対象の pending フィードバックが既に存在する場合は評価をスキップして即 approve
+
 ### 0.1.0
 
 - 初期リリース: Stop フックによるフィードバック収集と `/self-improve` スキルを追加

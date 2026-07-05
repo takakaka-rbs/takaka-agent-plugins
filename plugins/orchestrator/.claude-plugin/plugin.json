@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "orchestrator",
-  "version": "0.1.3",
-  "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
+  "version": "0.3.0",
+  "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
   "author": {
     "name": "takaka",
     "url": "https://github.com/takaka/takaka-agent-plugins"
