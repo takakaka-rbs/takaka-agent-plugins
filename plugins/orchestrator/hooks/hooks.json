@@ -1,0 +1,17 @@
+{
+  "description": "SessionStart でルーティング表をコンテキスト注入し、メイン会話を takaka-agent-plugins のオーケストレーターとして機能させるフック",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"${CLAUDE_PLUGIN_ROOT}/hooks/routing-table.md\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

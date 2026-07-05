@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "takaka-agent-plugins エコシステムの公式プラグインレジストリ。Claude Code (Agent SDK) 向けプラグインを一元管理する。",
-    "version": "0.4.0"
+    "version": "0.5.0"
   },
   "plugins": [
     {
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
-      "description": "全リクエストのエントリーポイント。適切なプラグインへのルーティングと複数プラグインの協調実行を担うコアプラグイン。",
-      "version": "0.1.3",
+      "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"

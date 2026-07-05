@@ -17,9 +17,15 @@ invocation: user
 ## Instructions
 
 1. `$ARGUMENTS` を解析して `plugin-name`, `agent-name`, タスク説明を取り出す
-2. `plugins/<plugin-name>/agents/<agent-name>.md` の存在を確認する
-3. ファイルが存在する場合 — そのエージェントに直接タスクを委譲する
-4. ファイルが存在しない場合 — `plugins/` 配下の全エージェントを一覧表示して使用可能な選択肢を提示する
+2. 指定されたエージェントの存在を確認する
+   - Agent ツールで利用可能なエージェントタイプ一覧に `<plugin-name>:<agent-name>` があるかをまず確認する
+   - 一覧で確認できない場合は、インストール済みプラグインキャッシュを走査する:
+     `~/.claude/plugins/cache/takaka-agent-plugins/<plugin-name>/<バージョン>/agents/<agent-name>.md`
+     （バージョンディレクトリが複数ある場合は最新バージョンを見る）
+   - takaka-agent-plugins リポジトリ自体を開発中の場合のみ、リポジトリ内の
+     `plugins/<plugin-name>/agents/<agent-name>.md` にフォールバックしてよい
+3. エージェントが存在する場合 — Agent ツールでそのエージェントに直接タスクを委譲する
+4. エージェントが存在しない場合 — 上記キャッシュ配下の全プラグインの `agents/*.md` を一覧表示して使用可能な選択肢を提示する
 
 ## Examples
 
@@ -32,5 +38,5 @@ invocation: user
 ```
 
 ```
-/route orchestrator planner 以下の複雑なタスクを分解してほしい: ...
+/route orchestrator orchestrator-planner 以下の複雑なタスクを分解してほしい: ...
 ```
