@@ -92,7 +92,7 @@
       "name": "plugin-improver",
       "source": "./plugins/plugin-improver",
       "description": "セッション中に検出したスキル/エージェント定義と実作業のズレをフィードバックとして自動記録し、/self-improve スキルで定義本体（SKILL.md / agents/*.md）へ反映する自己改善プラグイン。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
