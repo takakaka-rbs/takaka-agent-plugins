@@ -1,0 +1,333 @@
+# =============================================================================
+# OpenAPI仕様書テンプレート（openapi-specificater プラグイン用）
+#
+# ## この文書の位置づけ
+#
+# このOpenAPI仕様書（OpenSpec.yml）は「要件を満たす具体的なAPI」を定義する文書です。
+# 単なるスキーマ定義ではなく、実装者・利用者が本書だけでAPIを正しく使える
+# 「APIの機能仕様書（説明書）」として機能するレベルまで記述します。
+#
+#   要件定義書                  … サービスが満たすべき要件を抽象的に定義する
+#     ↑ REQ-F-XXX を参照
+#   OpenSpec.yml（本書）        … 要件を満たす具体的なAPIを定義する
+#   画面仕様書                  … 要件を満たす具体的な画面を定義する
+#
+# 参照は常に「本書 → 要件定義書」の一方向です。各APIの x-requirements に
+# 対応する要件ID（REQ-F-XXX）を記載します。
+#
+# ## 書き方の指針
+#
+# - description は「型名の言い換え」ではなく「業務上の意味・ルール」を書く
+#   （× "ユーザー名です" ○ "表示名。全角・半角問わず1〜50文字。重複可"）
+# - 各APIの description には目的・事前条件・ビジネスルール・副作用を必ず書く
+# - エラーレスポンスは「そのAPIで実際に起こりうるもの」をすべて列挙し、
+#   各ステータスに「どういう条件でこれが返るか」を書く
+# - 記述レベルの詳細な基準と良い例・悪い例は openapi-authoring-guide.md を参照
+# - 未記入の値には _(未記入)_ を残し、確定した時点で置き換える
+#
+# ## ID採番ルール
+#
+# - API-XXX  : 各操作（operation）のID。x-api-id に記載。001からの3桁連番
+# - OPEN-XXX : 本書スコープの未確定事項。x-open-issues に記載
+#
+# 既存の仕様書を更新する場合、既存の API-XXX は変更・再採番しないこと
+# （画面仕様書・実装・テストからの参照が壊れるため）。新規APIには欠番を
+# 避けて新しい連番を割り当てる。
+#
+# 「# GUIDE:」で始まるコメントは記入ガイドです。
+# 最終成果物ではガイドコメントを削除してください（通常のYAMLコメントとして
+# 補足を残すのは可）。
+# =============================================================================
+
+openapi: 3.1.0
+
+info:
+  # GUIDE: title は「<サービス名> API」の形式
+  title: _(未記入)_ API
+  # GUIDE: version はAPI自体のバージョン（仕様書ファイルの版とは別物）
+  version: 0.1.0
+  summary: _(未記入)_
+  # GUIDE: info.description は本書の「はじめに」。以下を必ず含める
+  #   1. APIの目的・提供する機能の全体像
+  #   2. 対象読者（フロントエンド実装者、外部連携先など）
+  #   3. 関連文書（要件定義書のパス・リンク）
+  #   4. 共通規約 — 全APIに適用されるルールをここに集約する
+  #      - 日時フォーマット（例: ISO 8601 / UTC）
+  #      - ページネーション方式（例: page/limit クエリ + total ヘッダー）
+  #      - ソート・フィルタの指定方法
+  #      - エラーレスポンスの共通形式と業務エラーコードの体系
+  #      - 認証方式の概要とトークンの取得方法
+  #      - 文字コード・Content-Type
+  description: |
+    _(未記入)_
+
+    ## 関連文書
+
+    - 要件定義書: _(未記入: パスまたはリンク)_
+
+    ## 共通規約
+
+    ### 日時フォーマット
+
+    _(未記入)_
+
+    ### ページネーション
+
+    _(未記入)_
+
+    ### エラーレスポンス
+
+    _(未記入: 共通エラー形式の説明と業務エラーコード一覧)_
+
+    ### 認証
+
+    _(未記入)_
+
+# GUIDE: 環境ごとのベースURLを列挙する。description で環境の用途を説明する
+servers:
+  - url: http://localhost:8080/api
+    description: ローカル開発環境
+  # - url: https://staging.example.com/api
+  #   description: ステージング環境
+  # - url: https://api.example.com/api
+  #   description: 本番環境
+
+# GUIDE: タグ = 機能仕様書の「章」。リソース・機能単位で定義し、
+#        description に「この章のAPI群が担う機能」を書く
+tags:
+  - name: _(未記入)_
+    description: _(未記入)_
+
+# GUIDE: デフォルトの認証要件。認証不要のAPIには操作側で security: [] を明示する
+security:
+  - bearerAuth: []
+
+# GUIDE: 本書スコープの未確定事項。解決したら本文へ反映しステータスを更新する。
+#        要件定義書側の OPEN-XXX とは独立した採番
+x-open-issues:
+  - id: OPEN-001
+    topic: _(未記入)_
+    detail: _(未記入)_
+    assignee: _(未記入)_
+    status: 未対応
+
+paths:
+  # GUIDE: 各操作（operation）は openapi-authoring-guide.md のチェックリストを
+  #        すべて満たすこと。最低限の構成は以下:
+  #   - operationId / x-api-id / x-requirements
+  #   - summary（一覧で内容がわかる一文）
+  #   - description（目的・利用場面 / 事前条件 / ビジネスルール / 副作用 / 権限）
+  #   - parameters・requestBody（制約 + example 付き）
+  #   - responses（成功系 + 起こりうる全エラー。各ステータスに発生条件を明記）
+  /_(未記入)_:
+    get:
+      operationId: _(未記入)_
+      x-api-id: API-001
+      # GUIDE: このAPIが満たす要件定義書の機能要件IDを列挙する
+      x-requirements:
+        - _(未記入: REQ-F-XXX)_
+      tags:
+        - _(未記入)_
+      summary: _(未記入)_
+      description: |
+        _(未記入)_
+
+        ### 利用場面
+
+        _(未記入: どのユースケース・業務でいつ呼ばれるか)_
+
+        ### 事前条件
+
+        _(未記入: 呼び出しに必要な状態・権限。なければ「なし」)_
+
+        ### ビジネスルール
+
+        _(未記入: 入力の業務的な制約、処理の分岐条件)_
+
+        ### 副作用
+
+        _(未記入: データ変更・通知送信・外部連携など。なければ「なし」)_
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          description: |
+            _(未記入: 何が返るか。0件時の挙動などの境界も書く)_
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/_(未記入)_"
+              examples:
+                default:
+                  summary: _(未記入)_
+                  value: _(未記入)_
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+
+components:
+  schemas:
+    # GUIDE: スキーマは「リクエスト用」と「レスポンス用」を分ける
+    #        （例: UserCreateRequest / UserResponse。サーバー採番のid等を混在させない）
+    #        全プロパティに description（業務上の意味）・制約・example を付ける
+    _(未記入)_:
+      type: object
+      required:
+        - _(未記入)_
+      properties:
+        _(未記入)_:
+          type: string
+          description: _(未記入)_
+          examples:
+            - _(未記入)_
+
+    # GUIDE: エラーレスポンスは全APIで共通のこの形式を使う。
+    #        code の一覧と意味は info.description の共通規約に記載する
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          description: 業務エラーコード。機械判定用（一覧は共通規約を参照）
+          examples:
+            - VALIDATION_ERROR
+        message:
+          type: string
+          description: 人間向けのエラー概要（日本語）。UI表示にそのまま使ってよい
+          examples:
+            - 入力内容に誤りがあります
+        details:
+          type: array
+          description: フィールド単位のエラー詳細。バリデーションエラー時のみ設定される
+          items:
+            type: object
+            required:
+              - field
+              - reason
+            properties:
+              field:
+                type: string
+                description: エラーが発生したフィールド名（リクエストボディのキー名）
+                examples:
+                  - email
+              reason:
+                type: string
+                description: そのフィールドがエラーになった理由
+                examples:
+                  - メールアドレスの形式が不正です
+
+  # GUIDE: 複数APIで使う共通パラメータはここに定義して $ref で参照する
+  parameters:
+    Page:
+      name: page
+      in: query
+      required: false
+      description: 取得するページ番号（1始まり）。省略時は1
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+      example: 1
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: 1ページあたりの取得件数。省略時は20
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+      example: 20
+
+  # GUIDE: 共通のエラーレスポンス定義。description には「どういう条件で
+  #        このステータスが返るか」の一般則を書き、API固有の発生条件は
+  #        各操作の description（ビジネスルール）側に書く
+  responses:
+    BadRequest:
+      description: リクエストの形式・値が不正な場合（バリデーションエラー）
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            validationError:
+              summary: バリデーションエラーの例
+              value:
+                code: VALIDATION_ERROR
+                message: 入力内容に誤りがあります
+                details:
+                  - field: _(未記入)_
+                    reason: _(未記入)_
+    Unauthorized:
+      description: 認証トークンが未指定・無効・期限切れの場合
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            unauthorized:
+              value:
+                code: UNAUTHORIZED
+                message: 認証が必要です
+    Forbidden:
+      description: 認証済みだが、この操作を行う権限がない場合
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            forbidden:
+              value:
+                code: FORBIDDEN
+                message: この操作を行う権限がありません
+    NotFound:
+      description: 指定されたリソースが存在しない、または閲覧権限がない場合
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            notFound:
+              value:
+                code: NOT_FOUND
+                message: 指定されたリソースが見つかりません
+    Conflict:
+      description: リソースの現在の状態と矛盾する操作の場合（重複作成・競合更新など）
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            conflict:
+              value:
+                code: CONFLICT
+                message: _(未記入)_
+    InternalServerError:
+      description: サーバー内部で予期しないエラーが発生した場合
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+          examples:
+            internalServerError:
+              value:
+                code: INTERNAL_SERVER_ERROR
+                message: サーバーエラーが発生しました。時間をおいて再度お試しください
+
+  # GUIDE: 認証方式の定義。description にトークンの取得方法・有効期限・
+  #        リフレッシュ方法を書く（または共通規約へのポインタを書く）
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        _(未記入: トークンの取得方法・有効期限・失効時の挙動)_
