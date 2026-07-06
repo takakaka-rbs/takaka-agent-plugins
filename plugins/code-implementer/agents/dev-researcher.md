@@ -1,6 +1,6 @@
 ---
 name: dev-researcher
-description: Use this agent when the /code-implementer skill needs to research a target repository's structure, conventions, and build/test commands (repository profile) and the implementation approach for a feature before coding starts. Examples: "対象リポジトリ /path/to/repo を調査して、技術スタック・レイヤー構成・命名規約・ビルド/テストコマンドをリポジトリプロファイルとしてまとめて", "API-003（ユーザー検索API）を Spring + jOOQ で実装する方式を、既存の類似実装を根拠に調査して". Also usable standalone for read-only repository convention research. Called from the code-implementer skill as the first step of the implementation workflow.
+description: Use this agent when the /code-implementer skill needs to research a target repository's structure, conventions, and build/test commands (repository profile) and the implementation approach for a feature — combining codebase analysis with web research (official docs, best practices, library usage) — before coding starts. Examples: "対象リポジトリ /path/to/repo を調査して、技術スタック・レイヤー構成・命名規約・ビルド/テストコマンドをリポジトリプロファイルとしてまとめて", "API-003（ユーザー検索API）を Spring + jOOQ で実装する方式を、既存の類似実装と公式ドキュメント・Web上のベストプラクティスを根拠に調査して". Also usable standalone for read-only repository or implementation-approach research. Called from the code-implementer skill as the first step of the implementation workflow.
 model: claude-sonnet-4-6
 color: blue
 tools:
@@ -74,8 +74,9 @@ tools:
 
 1. 実装スコープの各 API-XXX / SCR-XXX について仕様書の該当箇所を読み、必要な処理（バリデーション・ビジネスルール・DB操作・画面挙動）を把握する
 2. **既存の類似実装を最優先の根拠とする**: リポジトリ内に似たエンドポイント・画面があれば、その実装ファイル群をレイヤーごとに列挙し「この機能はこのパターンに倣って実装する」と示す
-3. リポジトリ内に前例がない要素（新しいライブラリの使い方、複雑なSQL、特殊なUIパターン等）のみ WebSearch / WebFetch で調査し、出典と確度（コードから確認 / Web情報に基づく一般論 / 推測）を付記する
-4. 仕様書に不備・矛盾（存在しないIDへの参照、API定義の欠落等）を見つけたら、修正せずに「残課題」へ記録する
+3. リポジトリ内の情報だけで完結させず、実装方式の裏取りとして WebSearch / WebFetch による Web 調査を積極的に行う: フレームワーク・ライブラリの公式ドキュメント、採用バージョンでの推奨される実装方法・非推奨API、一般的なベストプラクティス、セキュリティ上の注意点（バリデーション・SQLインジェクション対策等）を確認し、既存類似実装を踏襲する場合もその方式が現行バージョンで妥当かを裏付ける
+4. リポジトリ内に前例がない要素（新しいライブラリの使い方、複雑なSQL、特殊なUIパターン等）は必ず Web 調査で補う。いずれの調査結果にも出典（URL）と確度（コードから確認 / Web情報に基づく一般論 / 推測）を付記する
+5. 仕様書に不備・矛盾（存在しないIDへの参照、API定義の欠落等）を見つけたら、修正せずに「残課題」へ記録する
 
 ## 制約
 
