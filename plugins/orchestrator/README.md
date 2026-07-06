@@ -96,6 +96,10 @@ User Request ──► メイン会話（＝オーケストレーター）
 
 ## 更新履歴
 
+### 0.3.2
+
+- ルーティング表に `postgres-dev`（PostgreSQL の DDL/DML 作成・変更。調査専用サブエージェントは `postgres-researcher`）を追加
+
 ### 0.3.1
 
 - ルーティング表に `code-implementer`（仕様書からのアプリコード自動実装。調査専用サブエージェントは `dev-researcher`）を追加

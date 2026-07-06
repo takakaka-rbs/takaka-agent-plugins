@@ -13,6 +13,7 @@
 | GitHub Issue の作成 | `github-issue-creator` | `issue-drafter` |
 | 未コミット変更のコミット & プッシュ | `git-commit-pusher` | （なし） |
 | 仕様書からのアプリコード自動実装（調査→計画→実装→テスト→修正ループ） | `code-implementer` | `dev-researcher` |
+| PostgreSQL の DDL/DML 作成・変更（マイグレーション運用） | `postgres-dev` | `postgres-researcher` |
 
 ## ルーティング規則
 
