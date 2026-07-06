@@ -73,7 +73,7 @@
 
 ## 2. 実装計画（implementation-plan.md）
 
-出力者: `dev-planner`（改訂は `fix-planner` の修正計画を受けてスキルが追記指示）/ 読者: dev-backend, dev-frontend, テストエージェント
+出力者: `dev-planner`（修正ループで計画に影響する修正が出た場合の改訂も、`fix-planner` の修正計画を入力に `dev-planner` が行う）/ 読者: dev-backend, dev-frontend, テストエージェント
 
 ```markdown
 # 実装計画: <対象機能>
@@ -129,7 +129,7 @@
 
 | 項目 | 値 |
 |---|---|
-| 結果 | PASS / FAIL / ERROR（実行自体が失敗） |
+| 結果 | PASS / FAIL / ERROR（実行自体が失敗） / SKIP（ツール未導入等で実行対象外） |
 | 総数 | |
 | 成功 | |
 | 失敗 | |
