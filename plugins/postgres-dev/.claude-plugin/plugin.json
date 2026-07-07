@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "postgres-dev",
+  "version": "0.1.0",
+  "description": "PostgreSQL の DDL（テーブル定義・変更）・DML（シード/サンプルデータ・データ移行）を、対象リポジトリのスキーマ管理方式（Flyway 等のマイグレーション運用・命名規約・コード生成）に沿って作成・変更するプラグイン。適用済みマイグレーションは編集せず新規ファイルとして追加し、破壊的操作のみ実行前に確認する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/postgres-dev",
+  "license": "MIT",
+  "keywords": ["PostgreSQL", "DDL", "DML", "マイグレーション", "Flyway", "スキーマ設計"]
+}
