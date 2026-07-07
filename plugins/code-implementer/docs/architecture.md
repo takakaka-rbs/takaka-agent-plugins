@@ -58,8 +58,8 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 
 | エージェント | tools |
 |---|---|
-| dev-researcher | Read, Glob, Grep, Bash（コマンド存在確認等の読み取り系のみ）, WebFetch, WebSearch |
-| dev-planner / fix-planner | Read, Glob, Grep（読み取り専用。ファイル出力は呼び出し元のスキルが行うのではなく、Write のみ許可して自身の成果物ファイルを書く）→ Read, Glob, Grep, Write |
+| dev-researcher | Read, Glob, Grep, Bash（コマンド存在確認等の読み取り系のみ）, Write（調査レポートの出力のみ）, WebFetch, WebSearch |
+| dev-planner / fix-planner | Read, Glob, Grep, Write（自身の成果物ファイルの出力のみ。ソースコードは編集しない） |
 | dev-backend / dev-frontend | Read, Glob, Grep, Edit, Write, Bash（コンパイル・生成・lint 実行） |
 | test-* | Read, Glob, Grep, Edit, Write, Bash（テスト実行） |
 
