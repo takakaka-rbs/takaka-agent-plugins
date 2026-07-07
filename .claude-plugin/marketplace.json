@@ -14,7 +14,7 @@
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
       "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -113,6 +113,32 @@
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/postgres-dev",
       "license": "MIT",
       "category": "automation"
+    },
+    {
+      "name": "dev-knowledge-harvester",
+      "source": "./plugins/dev-knowledge-harvester",
+      "description": "ブランチ作業の完了後に、セッションの作業内容とブランチ差分から再利用可能な開発ナレッジを収穫し、対象リポジトリの独自スキル（.claude/skills/）と単発ナレッジ（docs/knowledge/*.md）へ蓄積するプラグイン。CLAUDE.md のナレッジ索引を自動メンテし、以降のセッションで全プラグインが参照できるようにする。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/dev-knowledge-harvester",
+      "license": "MIT",
+      "category": "documentation"
+    },
+    {
+      "name": "backlog-manager",
+      "source": "./plugins/backlog-manager",
+      "description": "EPIC・PBI を対象リポジトリの docs/backlog/ 配下に単純なマークダウンとして作成・更新・ステータス管理するプラグイン。EPIC-XXX → PBI-XXX → REQ-F-XXX / API-XXX → Issue → ブランチの ID 連鎖を frontmatter で相互リンクし、Issue 化は github-issue-creator に連携する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/backlog-manager",
+      "license": "MIT",
+      "category": "documentation"
     },
     {
       "name": "plugin-improver",
