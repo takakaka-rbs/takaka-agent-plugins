@@ -72,7 +72,7 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 ```
 <対象リポジトリ>/.claude/code-implementer/
 ├── research-report.md          # dev-researcher の出力（リポジトリプロファイル + 実装方式調査）
-├── implementation-plan.md      # dev-planner の出力（fix-planner が改訂を追記）
+├── implementation-plan.md      # dev-planner の出力（改訂も dev-planner が fix-plan を受けて行う）
 ├── test-reports/
 │   └── <level>-attempt<N>.md   # 各テストエージェントの出力（例: unit-backend-attempt1.md）
 └── fix-plans/
@@ -168,7 +168,7 @@ plugins/code-implementer/
 
 ## orchestrator ルーティングへの登録方針
 
-プラグイン完成時（SBI #34）に、orchestrator プラグインの `hooks/routing-table.md` の担当タスク一覧へ以下を追加する。
+orchestrator プラグインの `hooks/routing-table.md` の担当タスク一覧へ以下を登録する（SBI #34 で登録済み）。
 
 | ユーザーの依頼 | 委譲先スキル | 調査専用サブエージェント |
 |---|---|---|

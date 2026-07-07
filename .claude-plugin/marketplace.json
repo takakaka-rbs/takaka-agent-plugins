@@ -14,7 +14,7 @@
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
       "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
-      "version": "0.3.0",
+      "version": "0.3.2",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -85,6 +85,32 @@
         "url": "https://github.com/takaka/takaka-agent-plugins"
       },
       "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/git-commit-pusher",
+      "license": "MIT",
+      "category": "automation"
+    },
+    {
+      "name": "code-implementer",
+      "source": "./plugins/code-implementer",
+      "description": "API仕様書（OpenSpec.yml）・画面仕様書を入力に、対象リポジトリのアプリコードを「技術調査 → 実装計画 → 実装 → テスト → 修正ループ」のワークフローで自動実装するプラグイン。対象リポジトリの構成・規約は実行時に調査して従う（第一弾のサポートスタックは Spring / Vue3 / PostgreSQL）。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/code-implementer",
+      "license": "MIT",
+      "category": "automation"
+    },
+    {
+      "name": "postgres-dev",
+      "source": "./plugins/postgres-dev",
+      "description": "PostgreSQL の DDL（テーブル定義・変更）・DML（シード/サンプルデータ・データ移行）を、対象リポジトリのスキーマ管理方式（Flyway 等のマイグレーション運用・命名規約・コード生成）に沿って作成・変更するプラグイン。適用済みマイグレーションは編集せず新規ファイルとして追加し、破壊的操作のみ実行前に確認する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.1.0",
+      "author": {
+        "name": "takaka",
+        "url": "https://github.com/takaka/takaka-agent-plugins"
+      },
+      "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/postgres-dev",
       "license": "MIT",
       "category": "automation"
     },
