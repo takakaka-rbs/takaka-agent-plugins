@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "dev-knowledge-harvester",
+  "version": "0.1.0",
+  "description": "ブランチ作業の完了後に、セッションの作業内容とブランチ差分から再利用可能な開発ナレッジを収穫し、対象リポジトリの独自スキル（.claude/skills/）と単発ナレッジ（docs/knowledge/*.md）へ蓄積するプラグイン。CLAUDE.md のナレッジ索引を自動メンテし、以降のセッションで全プラグインが参照できるようにする。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/dev-knowledge-harvester",
+  "license": "MIT",
+  "keywords": ["ナレッジ", "開発知見", "独自スキル", "CLAUDE.md", "自己学習"]
+}
