@@ -47,7 +47,7 @@ flowchart TD
 | `dev-frontend` | #29 | 画面仕様書の SCR-XXX 単位で Vue3 のフロントエンド（画面コンポーネント・API呼び出し・状態管理）を実装 | セッション継承 |
 | `test-unit-backend` | #30 | JUnit 単体テスト（Service 層中心）の作成・実行・結果レポート出力 | claude-sonnet-4-6 |
 | `test-unit-frontend` | #30 | Vitest 単体テスト（コンポーネント・ロジック）の作成・実行・結果レポート出力 | claude-sonnet-4-6 |
-| `test-api` | #31 | API仕様書から RestAssured による APIテスト（正常系・異常系・ビジネスルール）の作成・実行・結果レポート出力 | claude-sonnet-4-6 |
+| `test-api` | #31 | API仕様書（OpenSpec.yml）を直接の根拠に、既存テストスタック（Spring Boot Test 等）で APIテスト（正常系・異常系・ビジネスルール）を作成・実行・結果レポート出力（新規ツールは原則導入しない） | claude-sonnet-4-6 |
 | `test-vrt` | #32 | 画面仕様書から Storybook ストーリーの作成と VRT の実行・結果レポート出力（未導入時は導入手順の案内） | claude-sonnet-4-6 |
 | `test-e2e` | #33 | 画面遷移・ユースケースから Playwright E2E テストの作成・実行・結果レポート出力 | claude-sonnet-4-6 |
 | `fix-planner` | #34 | テスト結果レポートの分析、失敗原因の分類、修正計画の作成（再作業の指示書） | セッション継承 |
@@ -72,7 +72,7 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 ```
 <対象リポジトリ>/.claude/code-implementer/
 ├── research-report.md          # dev-researcher の出力（リポジトリプロファイル + 実装方式調査）
-├── implementation-plan.md      # dev-planner の出力（fix-planner が改訂を追記）
+├── implementation-plan.md      # dev-planner の出力（改訂も dev-planner が fix-plan を受けて行う）
 ├── test-reports/
 │   └── <level>-attempt<N>.md   # 各テストエージェントの出力（例: unit-backend-attempt1.md）
 └── fix-plans/
@@ -168,7 +168,7 @@ plugins/code-implementer/
 
 ## orchestrator ルーティングへの登録方針
 
-プラグイン完成時（SBI #34）に、orchestrator プラグインの `hooks/routing-table.md` の担当タスク一覧へ以下を追加する。
+orchestrator プラグインの `hooks/routing-table.md` の担当タスク一覧へ以下を登録する（SBI #34 で登録済み）。
 
 | ユーザーの依頼 | 委譲先スキル | 調査専用サブエージェント |
 |---|---|---|
