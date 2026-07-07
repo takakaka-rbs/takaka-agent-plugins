@@ -96,6 +96,10 @@ User Request ──► メイン会話（＝オーケストレーター）
 
 ## 更新履歴
 
+### 0.3.3
+
+- ルーティング表に `harvest-knowledge`（開発ナレッジの収穫・蓄積。調査専用サブエージェントは `knowledge-researcher`）と `backlog-manager`（EPIC / PBI の作成・更新・ステータス管理。調査専用サブエージェントは `backlog-researcher`）を追加
+
 ### 0.3.2
 
 - ルーティング表に `postgres-dev`（PostgreSQL の DDL/DML 作成・変更。調査専用サブエージェントは `postgres-researcher`）を追加
