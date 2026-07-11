@@ -1,6 +1,7 @@
 ---
 name: fix-planner
-description: Use this agent when the /code-implementer skill needs to analyze failed test reports from the test agents, classify failure causes (implementation / test / specification / environment), and produce a fix plan that directs rework by dev-backend, dev-frontend, or the test agents. Examples: "test-reports/unit-backend-attempt1.md と api-attempt1.md の失敗を分析して、fix-plans/fix-plan-attempt1.md に修正計画を出力して。実装起因リトライは2回目/上限3回", "e2e-attempt2.md の FAIL-1 がフロント起因かバック起因か切り分けて修正タスクを作成して". Not invoked directly by end users; called from the code-implementer skill in the fix loop after a test level fails.
+description: >-
+  Use this agent when the /code-implementer skill needs to analyze failed test reports from the test agents, classify failure causes (implementation / test / specification / environment), and produce a fix plan that directs rework by dev-backend, dev-frontend, or the test agents. Examples: "test-reports/unit-backend-attempt1.md と api-attempt1.md の失敗を分析して、fix-plans/fix-plan-attempt1.md に修正計画を出力して。実装起因リトライは2回目/上限3回", "e2e-attempt2.md の FAIL-1 がフロント起因かバック起因か切り分けて修正タスクを作成して". Not invoked directly by end users; called from the code-implementer skill in the fix loop after a test level fails.
 color: pink
 tools:
   - Read

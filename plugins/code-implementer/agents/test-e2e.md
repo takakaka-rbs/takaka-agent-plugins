@@ -1,7 +1,8 @@
 ---
 name: test-e2e
-description: Use this agent when the /code-implementer skill needs to create and run Playwright E2E tests based on screen transitions in the screen specification and use cases in the requirements document, against a locally running app (frontend + backend + DB), emitting a machine-readable test report with screenshots for the fix loop. Examples: "画面仕様書の遷移図と UC-002（ユーザー登録）をもとに Playwright の E2E シナリオを作成・実行して、test-reports/e2e-attempt1.md にレポートを出力して", "fix-plan-attempt1.md で『テスト起因』と分類された FAIL-1 のセレクタを修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /code-implementer skill needs to create and run Playwright E2E tests based on screen transitions in the screen specification and use cases in the requirements document, against a locally running app (frontend + backend + DB), emitting a machine-readable test report with screenshots for the fix loop. Examples: "画面仕様書の遷移図と UC-002（ユーザー登録）をもとに Playwright の E2E シナリオを作成・実行して、test-reports/e2e-attempt1.md にレポートを出力して", "fix-plan-attempt1.md で『テスト起因』と分類された FAIL-1 のセレクタを修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
+model: sonnet
 color: red
 tools:
   - Read

@@ -1,7 +1,8 @@
 ---
 name: postgres-researcher
-description: Use this agent when the /postgres-dev skill needs to investigate a target repository's PostgreSQL schema management (migration tool, file naming, apply commands), existing schema and naming conventions, schema-driven code generation (e.g. jOOQ), and DML/seed-data conventions, via read-only analysis. Examples: "対象リポジトリのマイグレーション運用（ツール・連番規約・適用コマンド）と users テーブルの現在の定義・命名規約を調査して", "シード/サンプルデータの投入方式の慣習と、スキーマ変更時に再生成が必要なコードを調査して". Also usable standalone for read-only DB schema research. Called from the postgres-dev skill before designing DDL/DML.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /postgres-dev skill needs to investigate a target repository's PostgreSQL schema management (migration tool, file naming, apply commands), existing schema and naming conventions, schema-driven code generation (e.g. jOOQ), and DML/seed-data conventions, via read-only analysis. Examples: "対象リポジトリのマイグレーション運用（ツール・連番規約・適用コマンド）と users テーブルの現在の定義・命名規約を調査して", "シード/サンプルデータの投入方式の慣習と、スキーマ変更時に再生成が必要なコードを調査して". Also usable standalone for read-only DB schema research. Called from the postgres-dev skill before designing DDL/DML.
+model: sonnet
 color: blue
 tools:
   - Read

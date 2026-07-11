@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "screen-specificater",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "要件定義書（REQ-F-XXX）とOpenAPI仕様書（API-XXX）を参照しながら、コンポーネント配置・イベントハンドラー・表示制御まで記述した画面仕様書（Markdown）を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
   "author": {
     "name": "takaka",

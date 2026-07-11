@@ -1,7 +1,8 @@
 ---
 name: test-unit-backend
-description: Use this agent when the /code-implementer skill needs to create and run JUnit unit tests (mainly service-layer) for backend code implemented by dev-backend, and emit a machine-readable test report for the fix loop. Examples: "TASK-001（API-003）で実装された UserService に対する JUnit 単体テストを作成・実行して、test-reports/unit-backend-attempt1.md にレポートを出力して", "fix-plan-attempt1.md で『テスト起因』と分類された FAIL-2 のテストコードを修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /code-implementer skill needs to create and run JUnit unit tests (mainly service-layer) for backend code implemented by dev-backend, and emit a machine-readable test report for the fix loop. Examples: "TASK-001（API-003）で実装された UserService に対する JUnit 単体テストを作成・実行して、test-reports/unit-backend-attempt1.md にレポートを出力して", "fix-plan-attempt1.md で『テスト起因』と分類された FAIL-2 のテストコードを修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
+model: sonnet
 color: green
 tools:
   - Read

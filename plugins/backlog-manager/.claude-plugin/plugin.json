@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "backlog-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "EPIC・PBI を対象リポジトリの docs/backlog/ 配下に単純なマークダウンとして作成・更新・ステータス管理するプラグイン。EPIC-XXX → PBI-XXX → REQ-F-XXX / API-XXX → Issue → ブランチの ID 連鎖を frontmatter で相互リンクし、Issue 化は github-issue-creator に連携する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
   "author": {
     "name": "takaka",

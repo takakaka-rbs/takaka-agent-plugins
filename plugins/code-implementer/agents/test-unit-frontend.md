@@ -1,7 +1,8 @@
 ---
 name: test-unit-frontend
-description: Use this agent when the /code-implementer skill needs to create and run Vitest unit tests (components and logic) for frontend code implemented by dev-frontend, and emit a machine-readable test report for the fix loop. Examples: "TASK-002（SCR-002）で実装された UserListView と useUserSearch に対する Vitest 単体テストを作成・実行して、test-reports/unit-frontend-attempt1.md にレポートを出力して", "fix-plan-attempt2.md で『テスト起因』と分類された FAIL-1 のテストのモック設定を修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /code-implementer skill needs to create and run Vitest unit tests (components and logic) for frontend code implemented by dev-frontend, and emit a machine-readable test report for the fix loop. Examples: "TASK-002（SCR-002）で実装された UserListView と useUserSearch に対する Vitest 単体テストを作成・実行して、test-reports/unit-frontend-attempt1.md にレポートを出力して", "fix-plan-attempt2.md で『テスト起因』と分類された FAIL-1 のテストのモック設定を修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
+model: sonnet
 color: yellow
 tools:
   - Read

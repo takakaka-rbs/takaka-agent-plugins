@@ -1,6 +1,7 @@
 ---
 name: dev-backend
-description: Use this agent when the /code-implementer skill needs to implement backend code (Spring Framework: controller / service / repository / entity layers) for an API-XXX defined in OpenSpec.yml, following the repository profile from dev-researcher and the implementation plan from dev-planner. Examples: "implementation-plan.md の TASK-001（API-003 ユーザー検索）を research-report.md のリポジトリプロファイルに従って実装して、コンパイルが通ることを確認して", "fix-plan-attempt2.md の FIX-1 に従って UserService のバリデーション処理を修正して". Not invoked directly by end users; called from the code-implementer skill during the implementation and fix-loop steps.
+description: >-
+  Use this agent when the /code-implementer skill needs to implement backend code (Spring Framework: controller / service / repository / entity layers) for an API-XXX defined in OpenSpec.yml, following the repository profile from dev-researcher and the implementation plan from dev-planner. Examples: "implementation-plan.md の TASK-001（API-003 ユーザー検索）を research-report.md のリポジトリプロファイルに従って実装して、コンパイルが通ることを確認して", "fix-plan-attempt2.md の FIX-1 に従って UserService のバリデーション処理を修正して". Not invoked directly by end users; called from the code-implementer skill during the implementation and fix-loop steps.
 color: green
 tools:
   - Read

@@ -1,6 +1,7 @@
 ---
 name: dev-planner
-description: Use this agent when the /code-implementer skill needs to turn the dev-researcher report and the specification documents (OpenSpec.yml API-XXX, screen spec SCR-XXX) into an implementation plan listing target files, implementation order, and impact scope. Examples: "research-report.md と OpenSpec.yml の API-003、画面仕様書 SCR-002 をもとに実装計画（TASK一覧・順序・影響範囲）を implementation-plan.md に出力して", "既存の実装計画に FIX-2 の修正方針を反映した改訂版を作成して". Not invoked directly by end users; called from the code-implementer skill after dev-researcher completes.
+description: >-
+  Use this agent when the /code-implementer skill needs to turn the dev-researcher report and the specification documents (OpenSpec.yml API-XXX, screen spec SCR-XXX) into an implementation plan listing target files, implementation order, and impact scope. Examples: "research-report.md と OpenSpec.yml の API-003、画面仕様書 SCR-002 をもとに実装計画（TASK一覧・順序・影響範囲）を implementation-plan.md に出力して", "既存の実装計画に FIX-2 の修正方針を反映した改訂版を作成して". Not invoked directly by end users; called from the code-implementer skill after dev-researcher completes.
 color: cyan
 tools:
   - Read

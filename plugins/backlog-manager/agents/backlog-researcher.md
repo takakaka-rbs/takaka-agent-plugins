@@ -1,7 +1,8 @@
 ---
 name: backlog-researcher
-description: Use this agent when the /backlog-manager skill needs to investigate a target repository's existing backlog (docs/backlog/ layout, EPIC/PBI numbering, statuses), the requirements document's REQ-F-XXX coverage by existing PBIs, and related GitHub Issues and branches, via read-only analysis. Examples: "docs/backlog/ の現状と次に使うべき EPIC/PBI の連番、REQ-F-010〜012 をカバーする既存 PBI の有無を調査して", "PBI-004 に関連する Issue とブランチの状態を調べて". Also usable standalone for read-only backlog audits. Called from the backlog-manager skill before drafting EPICs/PBIs.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /backlog-manager skill needs to investigate a target repository's existing backlog (docs/backlog/ layout, EPIC/PBI numbering, statuses), the requirements document's REQ-F-XXX coverage by existing PBIs, and related GitHub Issues and branches, via read-only analysis. Examples: "docs/backlog/ の現状と次に使うべき EPIC/PBI の連番、REQ-F-010〜012 をカバーする既存 PBI の有無を調査して", "PBI-004 に関連する Issue とブランチの状態を調べて". Also usable standalone for read-only backlog audits. Called from the backlog-manager skill before drafting EPICs/PBIs.
+model: sonnet
 color: yellow
 tools:
   - Read

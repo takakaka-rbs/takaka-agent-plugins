@@ -1,7 +1,8 @@
 ---
 name: knowledge-researcher
-description: Use this agent when the /harvest-knowledge skill needs to investigate a target repository's existing knowledge assets (.claude/skills/, docs/knowledge/, CLAUDE.md index) and judge, for each new knowledge candidate, whether it should be created new, merged into an existing file, or dropped as duplicate, via read-only analysis. Examples: "対象リポジトリの既存ナレッジと索引の現状を調査して、候補5件の新規/追記/破棄を判定して", "VRT 運用に関する既存の記述が .claude/skills/ や docs/ にないか調べて". Also usable standalone for read-only knowledge-base audits. Called from the harvest-knowledge skill before writing knowledge files.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /harvest-knowledge skill needs to investigate a target repository's existing knowledge assets (.claude/skills/, docs/knowledge/, CLAUDE.md index) and judge, for each new knowledge candidate, whether it should be created new, merged into an existing file, or dropped as duplicate, via read-only analysis. Examples: "対象リポジトリの既存ナレッジと索引の現状を調査して、候補5件の新規/追記/破棄を判定して", "VRT 運用に関する既存の記述が .claude/skills/ や docs/ にないか調べて". Also usable standalone for read-only knowledge-base audits. Called from the harvest-knowledge skill before writing knowledge files.
+model: sonnet
 color: cyan
 tools:
   - Read

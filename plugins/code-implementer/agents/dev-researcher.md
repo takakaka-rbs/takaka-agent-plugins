@@ -1,7 +1,8 @@
 ---
 name: dev-researcher
-description: Use this agent when the /code-implementer skill needs to research a target repository's structure, conventions, and build/test commands (repository profile) and the implementation approach for a feature — combining codebase analysis with web research (official docs, best practices, library usage) — before coding starts. Examples: "対象リポジトリ /path/to/repo を調査して、技術スタック・レイヤー構成・命名規約・ビルド/テストコマンドをリポジトリプロファイルとしてまとめて", "API-003（ユーザー検索API）を Spring + jOOQ で実装する方式を、既存の類似実装と公式ドキュメント・Web上のベストプラクティスを根拠に調査して". Also usable standalone for read-only repository or implementation-approach research. Called from the code-implementer skill as the first step of the implementation workflow.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /code-implementer skill needs to research a target repository's structure, conventions, and build/test commands (repository profile) and the implementation approach for a feature — combining codebase analysis with web research (official docs, best practices, library usage) — before coding starts. Examples: "対象リポジトリ /path/to/repo を調査して、技術スタック・レイヤー構成・命名規約・ビルド/テストコマンドをリポジトリプロファイルとしてまとめて", "API-003（ユーザー検索API）を Spring + jOOQ で実装する方式を、既存の類似実装と公式ドキュメント・Web上のベストプラクティスを根拠に調査して". Also usable standalone for read-only repository or implementation-approach research. Called from the code-implementer skill as the first step of the implementation workflow.
+model: sonnet
 color: blue
 tools:
   - Read

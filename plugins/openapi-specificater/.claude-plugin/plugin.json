@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "openapi-specificater",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "要件定義書（REQ-F-XXX）を参照しながら、APIの機能仕様書として通用するレベルまで記述したOpenAPI仕様書（OpenSpec.yml）を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
   "author": {
     "name": "takaka",
