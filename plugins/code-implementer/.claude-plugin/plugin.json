@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "code-implementer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "API仕様書（OpenSpec.yml）・画面仕様書を入力に、対象リポジトリのアプリコードを「技術調査 → 実装計画 → 実装 → テスト → 修正ループ」のワークフローで自動実装するプラグイン。対象リポジトリの構成・規約は実行時に調査して従う（第一弾のサポートスタックは Spring / Vue3 / PostgreSQL）。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
   "author": {
     "name": "takaka",

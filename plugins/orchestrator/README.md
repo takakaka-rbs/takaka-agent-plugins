@@ -77,15 +77,23 @@ User Request ──► メイン会話（＝オーケストレーター）
 
 ## 新しいプラグインを追加したとき
 
-`hooks/routing-table.md` の **担当タスク一覧** テーブルに新しいプラグインのスキル/エージェントを追記してください。
+1. `hooks/routing-table.md` の **担当タスク一覧** テーブルに新しいプラグインのスキル/エージェントを追記してください。
 
 ```markdown
 | 新プラグインが担当するタスクの説明 | `new-plugin-skill` | `new-researcher` |
 ```
 
+2. `.claude-plugin/plugin.json` の `dependencies` 配列に新しいプラグイン名を追加してください。
+
+## 依存プラグイン（dependencies）
+
+orchestrator は `plugin.json` の `dependencies` でエコシステムの全専門プラグインへの依存を宣言しています。orchestrator をインストール/有効化すると、依存プラグインが同一マーケットプレイス内で自動解決され、まとめてインストール/有効化されます（Claude Code v2.1.143 以降）。
+
+> **注意**: 依存宣言により、orchestrator が有効な間は依存先プラグインを個別に無効化できません。個別に外したい場合は orchestrator ごと無効化してください。
+
 ## インストール
 
-マーケットプレイス経由でインストールしてください。
+マーケットプレイス経由でインストールしてください。orchestrator を入れるだけで依存プラグイン一式が自動インストールされます。
 
 ```
 /plugin marketplace add <takaka-agent-plugins のリポジトリ>

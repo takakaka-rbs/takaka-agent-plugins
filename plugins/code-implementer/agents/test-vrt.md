@@ -1,7 +1,8 @@
 ---
 name: test-vrt
-description: Use this agent when the /code-implementer skill needs to create Storybook stories from the screen specification (state and display-control specs) for Vue3 components and run visual regression tests (VRT), emitting a machine-readable test report for the fix loop. Examples: "SCR-002 の状態仕様（初期表示・ローディング・空・エラー）と表示制御を Storybook ストーリー化して VRT を実行し、test-reports/vrt-attempt1.md にレポートを出力して", "Storybook 未導入のリポジトリなので導入手順の案内をまとめて". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /code-implementer skill needs to create Storybook stories from the screen specification (state and display-control specs) for Vue3 components and run visual regression tests (VRT), emitting a machine-readable test report for the fix loop. Examples: "SCR-002 の状態仕様（初期表示・ローディング・空・エラー）と表示制御を Storybook ストーリー化して VRT を実行し、test-reports/vrt-attempt1.md にレポートを出力して", "Storybook 未導入のリポジトリなので導入手順の案内をまとめて". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
+model: sonnet
 color: purple
 tools:
   - Read

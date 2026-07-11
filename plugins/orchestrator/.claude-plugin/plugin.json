@@ -1,7 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "orchestrator",
-  "version": "0.3.3",
+  "version": "0.4.0",
+  "dependencies": [
+    "requirements-specificater",
+    "openapi-specificater",
+    "screen-specificater",
+    "github-issue-creator",
+    "git-commit-pusher",
+    "code-implementer",
+    "postgres-dev",
+    "dev-knowledge-harvester",
+    "backlog-manager",
+    "plugin-improver"
+  ],
   "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
   "author": {
     "name": "takaka",

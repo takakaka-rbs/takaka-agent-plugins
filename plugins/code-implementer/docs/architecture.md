@@ -22,11 +22,14 @@ flowchart TD
     S2[ステップ2: 実装計画<br>dev-planner] --> S3
     S3[ステップ3: 実装<br>dev-backend / dev-frontend] --> S4
     S4[ステップ4: テスト<br>test-unit-backend / test-unit-frontend<br>test-api / test-vrt / test-e2e] --> J{全テスト成功?}
-    J -- 成功 --> S6[ステップ6: 完了報告]
+    J -- 成功 --> S6[ステップ6: 実装レビュー<br>dev-reviewer]
     J -- 失敗 --> S5[ステップ5: 修正計画<br>fix-planner]
     S5 --> R{リトライ上限内?<br>かつコード起因?}
     R -- はい --> S3
-    R -- いいえ --> S6
+    R -- いいえ --> S7[ステップ7: 完了報告]
+    S6 --> K{must-fix なし?}
+    K -- 通過 --> S7
+    K -- 要修正<br>（往復上限2回まで） --> S3
 ```
 
 ## コンポーネント一覧と責務
@@ -41,18 +44,19 @@ flowchart TD
 
 | エージェント | 担当SBI | 責務 | model |
 |---|---|---|---|
-| `dev-researcher` | #27 | 対象リポジトリの構成・規約・実行コマンドの調査（リポジトリプロファイル）と、対象機能の実装方式（Spring / Vue3 / PostgreSQL での実現方法）の調査 | claude-sonnet-4-6 |
+| `dev-researcher` | #27 | 対象リポジトリの構成・規約・実行コマンドの調査（リポジトリプロファイル）と、対象機能の実装方式（Spring / Vue3 / PostgreSQL での実現方法）の調査 | sonnet |
 | `dev-planner` | #27 | 調査レポートと仕様書から実装計画（対象ファイル・実装順序・影響範囲）を作成 | セッション継承 |
 | `dev-backend` | #28 | API仕様書の API-XXX 単位で Spring のバックエンド（Controller / Service / Repository / Entity 相当）を実装 | セッション継承 |
 | `dev-frontend` | #29 | 画面仕様書の SCR-XXX 単位で Vue3 のフロントエンド（画面コンポーネント・API呼び出し・状態管理）を実装 | セッション継承 |
-| `test-unit-backend` | #30 | JUnit 単体テスト（Service 層中心）の作成・実行・結果レポート出力 | claude-sonnet-4-6 |
-| `test-unit-frontend` | #30 | Vitest 単体テスト（コンポーネント・ロジック）の作成・実行・結果レポート出力 | claude-sonnet-4-6 |
-| `test-api` | #31 | API仕様書（OpenSpec.yml）を直接の根拠に、既存テストスタック（Spring Boot Test 等）で APIテスト（正常系・異常系・ビジネスルール）を作成・実行・結果レポート出力（新規ツールは原則導入しない） | claude-sonnet-4-6 |
-| `test-vrt` | #32 | 画面仕様書から Storybook ストーリーの作成と VRT の実行・結果レポート出力（未導入時は導入手順の案内） | claude-sonnet-4-6 |
-| `test-e2e` | #33 | 画面遷移・ユースケースから Playwright E2E テストの作成・実行・結果レポート出力 | claude-sonnet-4-6 |
+| `test-unit-backend` | #30 | JUnit 単体テスト（Service 層中心）の作成・実行・結果レポート出力 | sonnet |
+| `test-unit-frontend` | #30 | Vitest 単体テスト（コンポーネント・ロジック）の作成・実行・結果レポート出力 | sonnet |
+| `test-api` | #31 | API仕様書（OpenSpec.yml）を直接の根拠に、既存テストスタック（Spring Boot Test 等）で APIテスト（正常系・異常系・ビジネスルール）を作成・実行・結果レポート出力（新規ツールは原則導入しない） | sonnet |
+| `test-vrt` | #32 | 画面仕様書から Storybook ストーリーの作成と VRT の実行・結果レポート出力（未導入時は導入手順の案内） | sonnet |
+| `test-e2e` | #33 | 画面遷移・ユースケースから Playwright E2E テストの作成・実行・結果レポート出力 | sonnet |
 | `fix-planner` | #34 | テスト結果レポートの分析、失敗原因の分類、修正計画の作成（再作業の指示書） | セッション継承 |
+| `dev-reviewer` | — | 全テスト成功後のレビューゲート。実装コード・テストコード・テスト結果を仕様書・実装計画・リポジトリプロファイルに照らしてレビューし、must-fix / suggestion を分類したレビューレポートを作成（差し戻しの指示書） | セッション継承 |
 
-model の方針: コード実装・計画・修正分析はセッションのモデル（通常は最上位モデル）を継承し、定型度が高い調査・テスト作成は `claude-sonnet-4-6` に固定する。
+model の方針: コード実装・計画・修正分析・レビューはセッションのモデル（通常は最上位モデル）を継承し、定型度が高い調査・テスト作成は `sonnet` エイリアス（現行 Sonnet）に固定する。
 
 ### ツール割り当て方針
 
@@ -62,6 +66,7 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 | dev-planner / fix-planner | Read, Glob, Grep, Write（自身の成果物ファイルの出力のみ。ソースコードは編集しない） |
 | dev-backend / dev-frontend | Read, Glob, Grep, Edit, Write, Bash（コンパイル・生成・lint 実行） |
 | test-* | Read, Glob, Grep, Edit, Write, Bash（テスト実行） |
+| dev-reviewer | Read, Glob, Grep, Bash（git diff 等の読み取り系のみ）, Write（レビューレポートの出力のみ。ソースコードは編集しない） |
 
 ## 成果物（エージェント間で受け渡す情報）
 
@@ -75,8 +80,10 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 ├── implementation-plan.md      # dev-planner の出力（改訂も dev-planner が fix-plan を受けて行う）
 ├── test-reports/
 │   └── <level>-attempt<N>.md   # 各テストエージェントの出力（例: unit-backend-attempt1.md）
-└── fix-plans/
-    └── fix-plan-attempt<N>.md  # fix-planner の出力
+├── fix-plans/
+│   └── fix-plan-attempt<N>.md  # fix-planner の出力
+└── review-reports/
+    └── review-attempt<N>.md    # dev-reviewer の出力
 ```
 
 ### 成果物の形式
@@ -87,6 +94,7 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 - **実装計画（implementation-plan.md）**: タスク一覧（ID: TASK-XXX / 担当: backend・frontend / 対象ファイル / 依存関係 / 対応する API-XXX・SCR-XXX）、実装順序、影響範囲、テスト方針
 - **テスト結果レポート（test-reports/*.md）**: 全テストエージェント共通形式。サマリー（対象レベル・実行コマンド・成功/失敗件数）、失敗ケース一覧（テストID / 対象 API-XXX・SCR-XXX / 期待値・実際値 / エラーメッセージ・スタックトレース抜粋 / 関連ファイル）、成果物パス（スクリーンショット等）。**fix-planner が機械的に読める見出し構成を厳守する**
 - **修正計画（fix-plans/*.md）**: 失敗ケースごとの原因分類・修正対象ファイル・修正内容・再実行すべきテストレベル・担当エージェント（dev-backend / dev-frontend）
+- **レビューレポート（review-reports/*.md）**: レビュー判定（通過 / 要修正）、指摘一覧（REV-N / 分類: must-fix 実装・must-fix テスト・suggestion・仕様起因 / 根拠 / 修正対象ファイル・修正内容 / 再実行テストレベル / 差し戻し先）。2回目以降は前回指摘の解消状況を含む
 
 ### 仕様書との参照関係
 
@@ -105,14 +113,15 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 3. **実行するテストレベル**（unit-backend / unit-frontend / api / vrt / e2e から選択。デフォルト: unit + api。vrt / e2e はツール未導入なら提案のみ）
 4. **修正ループの最大リトライ回数**（デフォルト: 3）
 
-### ステップ1〜6
+### ステップ1〜7
 
 1. **調査**: `dev-researcher` に対象リポジトリと実装スコープを渡し、`research-report.md` を出力させる
 2. **計画**: `dev-planner` に調査レポートと仕様書のパスを渡し、`implementation-plan.md` を出力させる。スキルは計画を**報告として**提示し、承認を待たずに続行する
 3. **実装**: 計画のタスク順に `dev-backend` / `dev-frontend` を起動する。各エージェントは担当タスクの実装後、コンパイル・ビルドが通ることを確認して完了報告する
 4. **テスト**: 選択されたテストレベルを `unit-backend → unit-frontend → api → vrt → e2e` の順に実行する（前段の失敗が後段のノイズになるため、失敗したレベルで一旦停止して修正ループに入る）
 5. **修正ループ**: 失敗レポートを `fix-planner` に分析させ、修正計画に従って `dev-backend` / `dev-frontend` に再作業させる。再作業後は失敗したレベルから再実行する（修正が前段レベルの対象コードに及んだ場合はそのレベルから再実行）
-6. **完了報告**: 実装ファイル一覧・テスト結果・採用した仮定・未解決の課題（仕様起因・環境起因を含む）をサマリーとして提示する
+6. **実装レビュー**: 全テストレベル成功後、`dev-reviewer` に実装コード・テストコード・テスト結果の3点をレビューさせ、`review-reports/review-attempt<N>.md` を出力させる。must-fix は分類に従って `dev-backend` / `dev-frontend` / テストエージェントに差し戻し、指定されたテストレベルを再実行した上で再レビューする（往復上限2回。レビュー差し戻しの再作業は修正ループのリトライ回数に数えない）
+7. **完了報告**: 実装ファイル一覧・テスト結果・レビュー結果・採用した仮定・未解決の課題（仕様起因・環境起因を含む）をサマリーとして提示する
 
 ## 修正ループの終了条件
 
@@ -120,7 +129,7 @@ model の方針: コード実装・計画・修正分析はセッションのモ
 
 | 条件 | 挙動 |
 |---|---|
-| 選択された全テストレベルが成功 | 正常完了として報告 |
+| 選択された全テストレベルが成功 | 実装レビュー（ステップ6）に進む |
 | 同一テストレベルのリトライ回数が上限（デフォルト3回）に到達 | ループを打ち切り、未解決の失敗一覧と分析結果を報告 |
 | fix-planner が失敗を「仕様起因」に分類 | そのケースはコード修正の対象外とし、仕様側の課題として記録して残りを続行 |
 | fix-planner が失敗を「環境起因」に分類 | 環境の修正方法を報告に含めて当該レベルをスキップし、残りを続行 |
@@ -149,7 +158,7 @@ plugins/code-implementer/
 ├── README.md
 ├── docs/
 │   ├── architecture.md            # 本書
-│   └── artifact-templates.md      # 成果物テンプレート（調査/計画/テスト/修正）
+│   └── artifact-templates.md      # 成果物テンプレート（調査/計画/テスト/修正/レビュー）
 ├── agents/
 │   ├── dev-researcher.md
 │   ├── dev-planner.md
@@ -160,7 +169,8 @@ plugins/code-implementer/
 │   ├── test-api.md
 │   ├── test-vrt.md
 │   ├── test-e2e.md
-│   └── fix-planner.md
+│   ├── fix-planner.md
+│   └── dev-reviewer.md
 └── skills/
     └── code-implementer/
         └── SKILL.md

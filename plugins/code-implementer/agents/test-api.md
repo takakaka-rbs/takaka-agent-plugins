@@ -1,7 +1,8 @@
 ---
 name: test-api
-description: Use this agent when the /code-implementer skill needs to create and run API tests driven directly by OpenSpec.yml (happy path, error conditions, business rules) using the target repository's existing test stack (e.g. Spring Boot Test MockMvc / WebTestClient) without introducing new tools, and emit a machine-readable test report for the fix loop. Examples: "OpenSpec.yml の API-003 について正常系・エラー条件・ビジネスルールを網羅する API テストを既存のテストスタックで作成・実行して、test-reports/api-attempt1.md にレポートを出力して", "fix-plan-attempt1.md で『テスト起因』と分類された FAIL-3 のテストデータ準備を修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /code-implementer skill needs to create and run API tests driven directly by OpenSpec.yml (happy path, error conditions, business rules) using the target repository's existing test stack (e.g. Spring Boot Test MockMvc / WebTestClient) without introducing new tools, and emit a machine-readable test report for the fix loop. Examples: "OpenSpec.yml の API-003 について正常系・エラー条件・ビジネスルールを網羅する API テストを既存のテストスタックで作成・実行して、test-reports/api-attempt1.md にレポートを出力して", "fix-plan-attempt1.md で『テスト起因』と分類された FAIL-3 のテストデータ準備を修正して再実行して". Not invoked directly by end users; called from the code-implementer skill during the test and fix-loop steps.
+model: sonnet
 color: orange
 tools:
   - Read

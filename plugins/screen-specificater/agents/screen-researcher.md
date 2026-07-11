@@ -1,7 +1,8 @@
 ---
 name: screen-researcher
-description: Use this agent when the /screen-specificater skill needs to fill gaps in a screen specification by investigating the existing codebase or external/web sources. Examples: "既存実装のルーティングと画面コンポーネントを調査して、ユーザー管理画面の現行仕様（配置コンポーネント・イベントハンドラー・バリデーション・表示制御）をまとめて", "一覧画面のページネーションと無限スクロールの使い分け、フォームバリデーションのタイミングの一般的なUX慣習をWebで調査して、共通規約の候補をまとめて". Not invoked directly by end users; called from the screen-specificater skill to research a specific screen or convention.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /screen-specificater skill needs to fill gaps in a screen specification by investigating the existing codebase or external/web sources. Examples: "既存実装のルーティングと画面コンポーネントを調査して、ユーザー管理画面の現行仕様（配置コンポーネント・イベントハンドラー・バリデーション・表示制御）をまとめて", "一覧画面のページネーションと無限スクロールの使い分け、フォームバリデーションのタイミングの一般的なUX慣習をWebで調査して、共通規約の候補をまとめて". Not invoked directly by end users; called from the screen-specificater skill to research a specific screen or convention.
+model: sonnet
 color: magenta
 tools:
   - Read

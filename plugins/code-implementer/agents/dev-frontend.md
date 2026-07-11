@@ -1,6 +1,7 @@
 ---
 name: dev-frontend
-description: Use this agent when the /code-implementer skill needs to implement frontend code (Vue3: screen components, API calls, state management) for an SCR-XXX defined in the screen specification, following the repository profile from dev-researcher and the implementation plan from dev-planner. Examples: "implementation-plan.md の TASK-002（SCR-002 ユーザー一覧画面）を research-report.md のリポジトリプロファイルに従って実装して、ビルドが通ることを確認して", "fix-plan-attempt1.md の FIX-3 に従って UserListView の空状態表示を修正して". Not invoked directly by end users; called from the code-implementer skill during the implementation and fix-loop steps.
+description: >-
+  Use this agent when the /code-implementer skill needs to implement frontend code (Vue3: screen components, API calls, state management) for an SCR-XXX defined in the screen specification, following the repository profile from dev-researcher and the implementation plan from dev-planner. Examples: "implementation-plan.md の TASK-002（SCR-002 ユーザー一覧画面）を research-report.md のリポジトリプロファイルに従って実装して、ビルドが通ることを確認して", "fix-plan-attempt1.md の FIX-3 に従って UserListView の空状態表示を修正して". Not invoked directly by end users; called from the code-implementer skill during the implementation and fix-loop steps.
 color: yellow
 tools:
   - Read

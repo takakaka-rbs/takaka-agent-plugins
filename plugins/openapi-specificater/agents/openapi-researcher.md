@@ -1,7 +1,8 @@
 ---
 name: openapi-researcher
-description: Use this agent when the /openapi-specificater skill needs to fill gaps in an OpenAPI specification by investigating the existing codebase or external/web sources. Examples: "既存実装のルーティングとDTOを調査して、ユーザー管理系エンドポイントの現行仕様（パス・パラメータ・バリデーション・エラー形式）をまとめて", "REST APIのページネーションとエラーレスポンスの一般的な設計慣習をWebで調査して、共通規約の候補をまとめて". Not invoked directly by end users; called from the openapi-specificater skill to research a specific API or convention.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /openapi-specificater skill needs to fill gaps in an OpenAPI specification by investigating the existing codebase or external/web sources. Examples: "既存実装のルーティングとDTOを調査して、ユーザー管理系エンドポイントの現行仕様（パス・パラメータ・バリデーション・エラー形式）をまとめて", "REST APIのページネーションとエラーレスポンスの一般的な設計慣習をWebで調査して、共通規約の候補をまとめて". Not invoked directly by end users; called from the openapi-specificater skill to research a specific API or convention.
+model: sonnet
 color: cyan
 tools:
   - Read

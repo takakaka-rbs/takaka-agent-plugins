@@ -1,7 +1,8 @@
 ---
 name: requirements-researcher
-description: Use this agent when the /requirements-specificater skill needs to fill gaps in a requirements specification document by investigating the existing codebase or external/web sources. Examples: "既存システムの現行機能を調査して、リプレイス対象サービスが持つべき機能要件の候補をまとめて", "非機能要件のセキュリティ欄について、この種のサービスで一般的に求められる要件水準をWebで調査してまとめて". Not invoked directly by end users; called from the requirements-specificater skill to research a specific section or open issue.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /requirements-specificater skill needs to fill gaps in a requirements specification document by investigating the existing codebase or external/web sources. Examples: "既存システムの現行機能を調査して、リプレイス対象サービスが持つべき機能要件の候補をまとめて", "非機能要件のセキュリティ欄について、この種のサービスで一般的に求められる要件水準をWebで調査してまとめて". Not invoked directly by end users; called from the requirements-specificater skill to research a specific section or open issue.
+model: sonnet
 color: cyan
 tools:
   - Read

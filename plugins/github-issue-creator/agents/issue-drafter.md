@@ -1,7 +1,8 @@
 ---
 name: issue-drafter
-description: Use this agent when the /github-issue-creator skill needs codebase research to enrich a GitHub issue draft with concrete details such as related files, reproduction steps, affected scope, or relevant git history. Examples: "ログイン処理でセッションが切れるバグについて、該当コードと再現条件を調査して", "この機能追加Issueに関連する既存実装と影響範囲をまとめて". Not invoked directly by end users; called from the github-issue-creator skill to research specific issue candidates.
-model: claude-sonnet-4-6
+description: >-
+  Use this agent when the /github-issue-creator skill needs codebase research to enrich a GitHub issue draft with concrete details such as related files, reproduction steps, affected scope, or relevant git history. Examples: "ログイン処理でセッションが切れるバグについて、該当コードと再現条件を調査して", "この機能追加Issueに関連する既存実装と影響範囲をまとめて". Not invoked directly by end users; called from the github-issue-creator skill to research specific issue candidates.
+model: sonnet
 color: green
 tools: Read, Glob, Grep, Bash
 ---
