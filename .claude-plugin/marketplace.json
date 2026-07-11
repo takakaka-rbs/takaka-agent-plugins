@@ -14,7 +14,7 @@
       "name": "orchestrator",
       "source": "./plugins/orchestrator",
       "description": "SessionStart フックでルーティング表をコンテキスト注入し、メイン会話をオーケストレーターとして適切なプラグインへの振り分けと複数プラグインの協調実行を担わせるコアプラグイン。",
-      "version": "0.3.3",
+      "version": "0.4.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -27,7 +27,7 @@
       "name": "openapi-specificater",
       "source": "./plugins/openapi-specificater",
       "description": "要件定義書（REQ-F-XXX）を参照しながら、APIの機能仕様書として通用するレベルまで記述したOpenAPI仕様書（OpenSpec.yml）を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -40,7 +40,7 @@
       "name": "requirements-specificater",
       "source": "./plugins/requirements-specificater",
       "description": "コードベース調査・Web調査を通じて、要件定義書テンプレートに沿った要件定義書を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -53,7 +53,7 @@
       "name": "screen-specificater",
       "source": "./plugins/screen-specificater",
       "description": "要件定義書（REQ-F-XXX）とOpenAPI仕様書（API-XXX）を参照しながら、コンポーネント配置・イベントハンドラー・表示制御まで記述した画面仕様書（Markdown）を作成・更新するプラグイン。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -66,7 +66,7 @@
       "name": "github-issue-creator",
       "source": "./plugins/github-issue-creator",
       "description": "ユーザーの指示からGitHub Issueを作成するプラグイン。方針確認はタスク開始時の1回のみで、ドラフト報告後そのまま作成まで自動で完遂する。GitHub MCPを優先し、MCPが対応しない操作はgh CLIで補完する。複数Issueの一括作成に対応。",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -91,8 +91,8 @@
     {
       "name": "code-implementer",
       "source": "./plugins/code-implementer",
-      "description": "API仕様書（OpenSpec.yml）・画面仕様書を入力に、対象リポジトリのアプリコードを「技術調査 → 実装計画 → 実装 → テスト → 修正ループ」のワークフローで自動実装するプラグイン。対象リポジトリの構成・規約は実行時に調査して従う（第一弾のサポートスタックは Spring / Vue3 / PostgreSQL）。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.1.0",
+      "description": "API仕様書（OpenSpec.yml）・画面仕様書を入力に、対象リポジトリのアプリコードを「技術調査 → 実装計画 → 実装 → テスト → 修正ループ → 実装レビュー」のワークフローで自動実装するプラグイン。対象リポジトリの構成・規約は実行時に調査して従う（第一弾のサポートスタックは Spring / Vue3 / PostgreSQL）。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+      "version": "0.2.0",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -105,7 +105,7 @@
       "name": "postgres-dev",
       "source": "./plugins/postgres-dev",
       "description": "PostgreSQL の DDL（テーブル定義・変更）・DML（シード/サンプルデータ・データ移行）を、対象リポジトリのスキーマ管理方式（Flyway 等のマイグレーション運用・命名規約・コード生成）に沿って作成・変更するプラグイン。適用済みマイグレーションは編集せず新規ファイルとして追加し、破壊的操作のみ実行前に確認する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -118,7 +118,7 @@
       "name": "dev-knowledge-harvester",
       "source": "./plugins/dev-knowledge-harvester",
       "description": "ブランチ作業の完了後に、セッションの作業内容とブランチ差分から再利用可能な開発ナレッジを収穫し、対象リポジトリの独自スキル（.claude/skills/）と単発ナレッジ（docs/knowledge/*.md）へ蓄積するプラグイン。CLAUDE.md のナレッジ索引を自動メンテし、以降のセッションで全プラグインが参照できるようにする。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
@@ -131,7 +131,7 @@
       "name": "backlog-manager",
       "source": "./plugins/backlog-manager",
       "description": "EPIC・PBI を対象リポジトリの docs/backlog/ 配下に単純なマークダウンとして作成・更新・ステータス管理するプラグイン。EPIC-XXX → PBI-XXX → REQ-F-XXX / API-XXX → Issue → ブランチの ID 連鎖を frontmatter で相互リンクし、Issue 化は github-issue-creator に連携する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "takaka",
         "url": "https://github.com/takaka/takaka-agent-plugins"
