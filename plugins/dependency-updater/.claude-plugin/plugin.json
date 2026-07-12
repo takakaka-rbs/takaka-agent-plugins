@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "dependency-updater",
+  "version": "0.1.0",
+  "description": "Dependabot が作成した依存関係更新PR（または手動指定のパッケージ更新）を入力に、バージョン更新に伴う既存コードの追随修正を「影響調査 → コード修正 → テスト → レビュー」のワークフローで自動で完遂するプラグイン。リリースノート・移行ガイドの Web 調査と使用箇所のコードベース走査で影響を特定し、挙動を変えない最小修正で追随する。質問はタスク開始時の実行前確認1回のみで、以降は自動で完遂する。",
+  "author": {
+    "name": "takaka",
+    "url": "https://github.com/takaka/takaka-agent-plugins"
+  },
+  "homepage": "https://github.com/takaka/takaka-agent-plugins/tree/main/plugins/dependency-updater",
+  "license": "MIT",
+  "keywords": ["Dependabot", "依存関係更新", "バージョンアップ", "破壊的変更", "自動修正", "AIワークフロー"]
+}

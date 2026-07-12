@@ -16,6 +16,7 @@
 | PostgreSQL の DDL/DML 作成・変更（マイグレーション運用） | `postgres-dev` | `postgres-researcher` |
 | 開発ナレッジの収穫・蓄積（独自スキル / docs/knowledge / CLAUDE.md 索引） | `harvest-knowledge` | `knowledge-researcher` |
 | EPIC / PBI（バックログ）の作成・更新・ステータス管理 | `backlog-manager` | `backlog-researcher` |
+| 依存関係バージョン更新（Dependabot PR / 手動指定）の影響調査・追随修正・テスト・レビュー | `dependency-updater` | `dep-researcher` |
 
 ## ルーティング規則
 

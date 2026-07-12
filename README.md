@@ -23,7 +23,8 @@ takaka-agent-plugins/
 │   ├── postgres-dev/                  # PostgreSQLのDDL/DML作成・変更（マイグレーション運用）
 │   ├── dev-knowledge-harvester/       # 開発ナレッジの収穫・蓄積（独自スキル/docs/knowledge/CLAUDE.md索引）
 │   ├── backlog-manager/               # EPIC/PBIのマークダウン管理（要件・Issue・ブランチとのID連鎖）
-│   └── plugin-improver/               # 定義と実作業のズレの収集・定義への反映（自己改善）
+│   ├── plugin-improver/               # 定義と実作業のズレの収集・定義への反映（自己改善）
+│   └── dependency-updater/            # 依存関係バージョン更新の追随修正（影響調査〜修正〜テスト〜レビュー）
 ├── template/                          # 新規プラグイン作成用ひな型
 ├── docs/
 │   └── plugin-spec.md                 # プラグイン仕様
@@ -57,6 +58,7 @@ plugins/<name>/
 | [dev-knowledge-harvester](./plugins/dev-knowledge-harvester/) | 0.1.0 | `/harvest-knowledge` | ブランチ作業の学びを対象リポジトリの独自スキル（.claude/skills/）・ナレッジMD（docs/knowledge/）へ蓄積し、CLAUDE.mdのナレッジ索引を自動メンテする（質問は実行前確認の1回のみ） |
 | [backlog-manager](./plugins/backlog-manager/) | 0.1.0 | `/backlog-manager` | EPIC/PBIをdocs/backlog/のマークダウンとして作成・更新・ステータス管理し、REQ-F-XXX・Issue・ブランチとID連鎖させる（Issue化はgithub-issue-creatorに連携。質問は実行前確認の1回のみ） |
 | [plugin-improver](./plugins/plugin-improver/) | 0.1.1 | Stopフック / `/self-improve` | セッション中に検出した定義と実作業のズレを自動記録し、承認のうえでSKILL/エージェント定義本体へ反映する |
+| [dependency-updater](./plugins/dependency-updater/) | 0.1.0 | `/dependency-updater` | Dependabot PR（または手動指定）の依存バージョン更新に伴う既存コードの追随修正を「影響調査→修正→テスト→レビュー」で自動実行する（質問は実行前確認の1回のみ） |
 
 ## ドキュメント作成プラグインの連携
 
